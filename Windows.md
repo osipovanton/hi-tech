@@ -41,14 +41,16 @@ Set-TimeZone -Id "Russian Standard Time"
 
 ![image](https://user-images.githubusercontent.com/79700810/135077137-a6b43163-7ea7-4fb2-9e33-c555f1d03037.png)
 
+
+```powershell
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
+```
+![image](https://user-images.githubusercontent.com/79700810/135084032-127b3938-8887-43af-b922-407d02f7f7e0.png)
+
+
 ```powershell
 Restart-Computer
 ```
-
-## Проверка
-
-![image](https://user-images.githubusercontent.com/79700810/135077948-a74d7b57-2492-4575-8b23-d4c0bfe90cee.png)
-
 
 ## BD
 
@@ -78,6 +80,13 @@ Set-TimeZone -Id "Russian Standard Time"
 ![image](https://user-images.githubusercontent.com/79700810/135079028-814169e5-4aa6-49a4-9004-0ed185bce153.png)
 
 ```powershell
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135084143-03aec0f0-07a3-4919-b70f-d9c7d3bf1400.png)
+
+
+```powershell
 Restart-Computer
 ```
 ## APP
@@ -90,5 +99,49 @@ $GetIndex = Get-NetAdapter
 New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.3 -PrefixLength 24 -DefaultGateway 172.30.0.254
 Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
 Set-TimeZone -Id "Russian Standard Time"
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
 Restart-Computer
 ```
+
+## Config
+
+AD
+
+```powershell
+Rename-Computer -NewName AD
+$GetIndex = Get-NetAdapter 
+New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.1 -PrefixLength 24 -DefaultGateway 172.30.0.254
+Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
+Set-TimeZone -Id "Russian Standard Time"
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
+Restart-Computer
+```
+BD
+
+```powershell
+Rename-Computer -NewName BD
+$GetIndex = Get-NetAdapter 
+New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.2 -PrefixLength 24 -DefaultGateway 172.30.0.254
+Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
+Set-TimeZone -Id "Russian Standard Time"
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
+Restart-Computer
+```
+APP
+
+```powershell
+Rename-Computer -NewName APP
+$GetIndex = Get-NetAdapter 
+New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.3 -PrefixLength 24 -DefaultGateway 172.30.0.254
+Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
+Set-TimeZone -Id "Russian Standard Time"
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
+Restart-Computer
+```
+
+## Проверка AD
+
+
+![image](https://user-images.githubusercontent.com/79700810/135084339-b734e3aa-8948-48ed-b21d-89450149fc36.png)
+
+
