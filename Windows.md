@@ -145,3 +145,23 @@ Restart-Computer
 ![image](https://user-images.githubusercontent.com/79700810/135084339-b734e3aa-8948-48ed-b21d-89450149fc36.png)
 
 
+## Install AD
+
+```powershell
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135089113-45590dc5-2691-435d-b07e-21dcc331a611.png)
+
+
+```powershell
+Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
+```
+![image](https://user-images.githubusercontent.com/79700810/135086754-285e1bd2-59b4-45a0-adc9-79c4a574b083.png)
+
+```powershell
+Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135089385-f9b18d69-4c0d-40d9-a100-4a3fc80be898.png)
+
