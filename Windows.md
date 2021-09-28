@@ -3,7 +3,8 @@
 
 ## Базова конфигурация
 
-AD
+## AD
+
 ![image](https://user-images.githubusercontent.com/79700810/135076082-526bacb5-788e-41e1-97b6-478b23334b2e.png)
 
 ```powershell
