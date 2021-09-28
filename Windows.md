@@ -50,3 +50,29 @@ Restart-Computer
 ![image](https://user-images.githubusercontent.com/79700810/135077948-a74d7b57-2492-4575-8b23-d4c0bfe90cee.png)
 
 
+## BD
+
+```powershell
+Rename-Computer -NewName BD
+```
+![image](https://user-images.githubusercontent.com/79700810/135078689-e391018d-d787-46c0-b9a0-099bd68d2488.png)
+
+```powershell
+$GetIndex = Get-NetAdapter 
+New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.2 -PrefixLength 24 -DefaultGateway 172.30.0.254
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135078577-974c7ced-0520-4c8b-abf4-086b6e8099a4.png)
+
+```powershell
+Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135078826-7608a631-22a0-4d47-b7d4-d3aa392dcb35.png)
+
+
+```powershell
+Set-TimeZone -Id "Russian Standard Time"
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135079028-814169e5-4aa6-49a4-9004-0ed185bce153.png)
