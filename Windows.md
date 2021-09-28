@@ -159,9 +159,17 @@ Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135086754-285e1bd2-59b4-45a0-adc9-79c4a574b083.png)
 
+
+## DNS
+
 ```powershell
 Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
 ```
 
 ![image](https://user-images.githubusercontent.com/79700810/135089385-f9b18d69-4c0d-40d9-a100-4a3fc80be898.png)
+
+```powershell
+Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
+```
+![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
 
