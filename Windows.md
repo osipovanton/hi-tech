@@ -76,3 +76,19 @@ Set-TimeZone -Id "Russian Standard Time"
 ```
 
 ![image](https://user-images.githubusercontent.com/79700810/135079028-814169e5-4aa6-49a4-9004-0ed185bce153.png)
+
+```powershell
+Restart-Computer
+```
+## APP
+
+![image](https://user-images.githubusercontent.com/79700810/135079269-d193157f-3d1c-4bdf-b12e-c9a29c51ad52.png)
+
+```powershell
+Rename-Computer -NewName APP
+$GetIndex = Get-NetAdapter 
+New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.3 -PrefixLength 24 -DefaultGateway 172.30.0.254
+Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
+Set-TimeZone -Id "Russian Standard Time"
+Restart-Computer
+```
