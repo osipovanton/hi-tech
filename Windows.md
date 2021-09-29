@@ -337,6 +337,10 @@ Add-Computer -DomainName "ht2021.local"
 ```powershell
 Restart-Computer
 ```
+ ## GIT install
 
+![image](https://user-images.githubusercontent.com/79700810/135251518-b528c6f5-6073-464c-a76a-745dff4fab15.png)
 
-
+```powershell
+Restart-Computer
+```
