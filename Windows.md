@@ -365,7 +365,7 @@ Restart-Computer
 
 ![image](https://user-images.githubusercontent.com/79700810/135251518-b528c6f5-6073-464c-a76a-745dff4fab15.png)
 
-
+## install dotnet sdk
 
 
 
@@ -389,7 +389,7 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 
 ![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
 
-## install dotnet sdk
+
 
 
 ### !!!!!!!! git clone
