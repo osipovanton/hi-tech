@@ -389,8 +389,12 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 
 ![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
 
+## install dotnet sdk
+
 
 ### !!!!!!!! git clone
+
+
 
 ## dotnet run
 
