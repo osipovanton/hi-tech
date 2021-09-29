@@ -273,12 +273,19 @@ Add-Computer -DomainName "ht2021.local"
 ```powershell
 Restart-Computer
 ```
+```powershell
+New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
+```
+![image](https://user-images.githubusercontent.com/79700810/135220934-1c17e457-1931-411c-adce-e261e91349da.png)
+```powershell
+New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
+```
+![image](https://user-images.githubusercontent.com/79700810/135221149-d182072d-f02d-4b25-a19d-5a7f57a7a91f.png)
+
 
 ## install MSSQL
 
 ![image](https://user-images.githubusercontent.com/79700810/135219676-8d2ca0e5-387d-4543-bfdc-a67505a1d84c.png)
-
-![image](https://user-images.githubusercontent.com/79700810/135219718-524b9e84-dcd9-4086-8773-55e035a6e730.png).
 
 
 
