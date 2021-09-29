@@ -103,7 +103,7 @@ Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Prof
 Restart-Computer
 ```
 
-## Config
+## All Config
 
 AD
 
@@ -160,7 +160,7 @@ Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
 ![image](https://user-images.githubusercontent.com/79700810/135086754-285e1bd2-59b4-45a0-adc9-79c4a574b083.png)
 
 
-## DNS
+  ## DNS
 
 ```powershell
 Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
@@ -173,11 +173,11 @@ Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
 
-## Проверка AD DNS
+  ## Проверка AD DNS
 
 ![image](https://user-images.githubusercontent.com/79700810/135211673-ed82d9e5-0646-4672-be7e-c1f19d1fd47c.png)
 
-## DHCP
+  ## DHCP
 
 
 ```powershell
@@ -229,12 +229,12 @@ Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 15 -Value "ht2021.loca
 
 ![image](https://user-images.githubusercontent.com/79700810/135214354-7a77a647-5a7e-491e-b427-b2bc0acaf63d.png)
 
-## Проверка DHCP
+  ## Проверка DHCP
 
 ![image](https://user-images.githubusercontent.com/79700810/135214432-9e49bda1-c6ae-4810-afb0-353557790409.png)
 
 
-## OU group user
+  ## OU group user
 
 ```powershell
 New-ADOrganizationalUnit -Name "OUBD" -Path "DC=ht2021, DC=local"
@@ -259,8 +259,27 @@ Add-ADGroupMember -Identity BD -Members lorries
 
 ![image](https://user-images.githubusercontent.com/79700810/135218611-74776adc-b0be-4922-8020-0d28507adf73.png)
 
-## Проверка
+  ## Проверка
 
 ![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
+
+## BD
+
+```powershell
+Add-Computer -DomainName "ht2021.local"
+```
+![image](https://user-images.githubusercontent.com/79700810/135219110-dd760bf4-ba07-4050-9898-df8f9af9a031.png)
+
+```powershell
+Restart-Computer
+```
+
+## install MSSQL
+
+![image](https://user-images.githubusercontent.com/79700810/135219676-8d2ca0e5-387d-4543-bfdc-a67505a1d84c.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135219718-524b9e84-dcd9-4086-8773-55e035a6e730.png).
+
+
 
 
