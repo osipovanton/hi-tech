@@ -324,3 +324,19 @@ select * from Vehicle
 ## Проверка 
 
 ![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
+
+
+## APP
+
+```powershell
+Add-Computer -DomainName "ht2021.local"
+```
+![image](https://user-images.githubusercontent.com/79700810/135242823-ee8b488a-9acb-40fc-93e3-1870fefe9788.png)
+
+
+```powershell
+Restart-Computer
+```
+
+
+
