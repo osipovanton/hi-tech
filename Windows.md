@@ -321,3 +321,6 @@ Insert into Vehicle ([Name],[License], Make, Model,Year) Values ('Thunderdom', '
 
 select * from Vehicle
 ```
+## Проверка 
+
+![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
