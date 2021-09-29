@@ -139,7 +139,7 @@ Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Prof
 Restart-Computer
 ```
 
-## Проверка AD
+## Проверка c AD
 
 
 ![image](https://user-images.githubusercontent.com/79700810/135084339-b734e3aa-8948-48ed-b21d-89450149fc36.png)
@@ -172,4 +172,95 @@ Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
 Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
+
+## Проверка AD DNS
+
+![image](https://user-images.githubusercontent.com/79700810/135211673-ed82d9e5-0646-4672-be7e-c1f19d1fd47c.png)
+
+## DHCP
+
+
+```powershell
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
+```
+![image](https://user-images.githubusercontent.com/79700810/135211808-5c33709a-d592-4784-9f60-2bef6c36b92f.png)
+
+Авторизуйте DHCP сервер в Active Directory (укажите DNS имя сервера и IP адрес, который будет использоваться DHCP клиентами):
+
+```powershell
+Add-DhcpServerInDC -DnsName ad.ht2021.local -IPAddress 172.30.0.1
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135213223-c5d40c20-221a-4a3f-8787-ac3ce268cb41.png)
+
+
+Чтобы Server Manager перестал показывать уведомление о том, что DHCP роль требует настройки, выполните команду:
+
+```powershell
+Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ServerManager\Roles\12 -Name ConfigurationState -Value 2
+```
+
+Перезапустите службу DHCPServer:
+```powershell
+Restart-Service -Name DHCPServer -Force
+```
+![image](https://user-images.githubusercontent.com/79700810/135213462-a33e9765-4c95-4986-9067-fa81849374b3.png)
+
+
+```powershell
+Add-DhcpServerv4Scope -Name DHCPHT -StartRange 172.30.0.101 -EndRange 172.30.0.110 -SubnetMask 255.255.255.0 -State Active
+```
+![image](https://user-images.githubusercontent.com/79700810/135213584-b692175b-d318-40c5-afc4-c364b9b4b128.png)
+
+```powershell
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 6 -Value "172.30.0.1","8.8.8.8"
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135213840-d0ec6b72-1e87-4c87-9df7-4c74fc8d4872.png)
+
+```powershell
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 3 -Value "172.30.0.254"
+```
+![image](https://user-images.githubusercontent.com/79700810/135214157-ee7d8f67-1408-4cef-8d7d-01883f8a61de.png)
+
+```powershell
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 15 -Value "ht2021.local"
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135214354-7a77a647-5a7e-491e-b427-b2bc0acaf63d.png)
+
+## Проверка DHCP
+
+![image](https://user-images.githubusercontent.com/79700810/135214432-9e49bda1-c6ae-4810-afb0-353557790409.png)
+
+
+## OU group user
+
+```powershell
+New-ADOrganizationalUnit -Name "OUBD" -Path "DC=ht2021, DC=local"
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135214867-a588094d-20e4-405b-b0d2-259c5051b994.png)
+
+```powershell
+New-ADGroup -Name "BD" -Path "OU=OUBD, DC=ht2021, DC=local" -GroupScope Global -SamAccountName BD
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135214997-fd4943f0-da1b-42ae-8830-64e1b7f051b8.png)
+
+```powershell
+New-ADUser -Name lorries -Enabled $true -Path 'OU=OUBD,DC=ht2021, DC=local' -AccountPassword (ConvertTo-SecureString -String 'Pa$$w0rd' -AsPlainText -Force) -UserPrincipalName lorries@ht2021.local -PasswordNeverExpires $true 
+```
+![image](https://user-images.githubusercontent.com/79700810/135218499-7ef57c02-0fc0-46cf-86e2-ca0fc21bb0b9.png)
+
+```powershell
+Add-ADGroupMember -Identity BD -Members lorries
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135218611-74776adc-b0be-4922-8020-0d28507adf73.png)
+
+## Проверка
+
+![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
+
 
