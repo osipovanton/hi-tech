@@ -309,3 +309,13 @@ Restart-Computer
 ![image](https://user-images.githubusercontent.com/79700810/135234607-309ba498-1de5-40c6-a248-f663bf4b0c7f.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135240076-12049d3d-d476-4e78-9c1d-eaf42960cd3f.png)
+
+```mssql
+create database lorrylog;
+use lorrylog;
+Create table [dbo].[Vehicle]([Id] [int] identity(1,1) not null,[Name] [nvarchar](50) not null,[License] [nvarchar](10) not null,[Make] [nvarchar](20) not null,[Model] [nvarchar](20) not null,[Year] [smallint] not null,Primary key CLUSTERED([Id] ASC))
+
+Insert into Vehicle ([Name],[License], Make, Model,Year) Values ('Thunderdom', 'MADMAX','Ford', 'Falcon XB Coupe', 1974)
+
+select * from Vehicle
+```
