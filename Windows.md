@@ -259,6 +259,18 @@ Add-ADGroupMember -Identity BD -Members lorries
 
 ![image](https://user-images.githubusercontent.com/79700810/135218611-74776adc-b0be-4922-8020-0d28507adf73.png)
 
+ ## GPO 
+
+![image](https://user-images.githubusercontent.com/79700810/135275861-4635c1a3-88dd-4dd5-82a5-d3641570cdcf.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135276156-4f3b6640-d595-4123-a67d-1ccc8920a17c.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135276221-6b3f8074-4ffa-4d80-9a2b-689abbe8d5a1.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135276374-c6686035-50bc-4b3e-873d-30e4489a9a9f.png)
+
+
+
   ## Проверка
 
 ![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
@@ -325,6 +337,18 @@ select * from Vehicle
 
 ![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
 
+### !!!!!!!! git clone
+
+
+## connect url
+
+![image](https://user-images.githubusercontent.com/79700810/135277610-4c0a60a8-5823-4fa6-80e8-7cf5b504a613.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135278161-432a47e6-23cc-497a-86c8-c2bae2052002.png)
+
+
+### !!!!!!!! git pull
+
 
 ## APP
 
@@ -341,6 +365,39 @@ Restart-Computer
 
 ![image](https://user-images.githubusercontent.com/79700810/135251518-b528c6f5-6073-464c-a76a-745dff4fab15.png)
 
+
+
+
+
+
 ```powershell
 Restart-Computer
 ```
+```powershell
+New-NetFirewallRule -DisplayName "WebApi default 5000" -Direction Inbound -LocalPort 5000 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "WebApi Browser 5000" -Direction Inbound -LocalPort 5000 -Protocol UDP -Action Allow
+
+New-NetFirewallRule -DisplayName "WebApi default 5001" -Direction Inbound -LocalPort 5001 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -LocalPort 5001 -Protocol UDP -Action Allow
+```
+![image](https://user-images.githubusercontent.com/79700810/135277077-02202be5-a645-4a4e-af1a-f6981d3897b3.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135277044-6ae24bf0-92e6-45f3-b72f-8dfaa6b0037a.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135277119-4309f92b-9c51-4440-a5d4-820d5260c9ef.png)
+
+
+![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
+
+
+### !!!!!!!! git clone
+
+## dotnet run
+
+![image](https://user-images.githubusercontent.com/79700810/135277373-5785842f-e6ef-4b19-805c-a9a02716418c.png)
+
+## Проверка DEV1
+
+![image](https://user-images.githubusercontent.com/79700810/135278253-4edef0fc-9032-407f-af93-48b94ac2754a.png)
+
+
