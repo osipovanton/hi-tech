@@ -48,3 +48,24 @@ Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdate
 ![image](https://user-images.githubusercontent.com/79700810/135412335-a0e1a285-dd9d-4a45-8701-fdc6cb6b78ee.png)
 
 
+## join domen
+
+
+
+
+## host config 
+
+```powershell
+Add-DnsServerResourceRecordA -Name "esxi1" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.6" -CreatePtr
+
+Add-DnsServerResourceRecordA -Name "esxi2" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.7" -CreatePtr
+```
+
+ESXi1
+
+![image](https://user-images.githubusercontent.com/79700810/135413309-84959e81-8e3e-4c13-87c5-759e8d7e27f6.png)
+
+
+ESXi2
+
+
