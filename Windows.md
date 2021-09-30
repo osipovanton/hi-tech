@@ -408,6 +408,5 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 
 ## Проверка DEV1
 
-![image](https://user-images.githubusercontent.com/79700810/135278253-4edef0fc-9032-407f-af93-48b94ac2754a.png)
-
+![image](https://user-images.githubusercontent.com/79700810/135402954-0514daf7-d9dd-418f-9e41-e1186d1c3a26.png)
 
