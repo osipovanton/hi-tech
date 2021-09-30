@@ -354,14 +354,14 @@ fork
 ### !!!!!!!! git clone
 ![image](https://user-images.githubusercontent.com/79700810/135442313-a2812500-9360-41ef-a53c-37bf25c3bb0e.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135435940-01e62b51-bdd5-43c0-99d1-990a60d537ba.png)
+![image](https://user-images.githubusercontent.com/79700810/135442609-af82e04e-4af5-4c7a-8335-67cf48973ba0.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135436103-5cb74ffb-029d-46da-ae7c-5c4014dbfb53.png)
 
 
 ## connect url
 ```
-"Server=bd.ht.2021.local; Database=LorryLog; Trusted_Connection=True;"
+"Server=bd.ht2021.local; Database=LorryLog; Trusted_Connection=True;"
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135277610-4c0a60a8-5823-4fa6-80e8-7cf5b504a613.png)
 ```
@@ -371,6 +371,8 @@ http://172.30.0.3:5001;http://lorrylogapi.ht2021.local:5001
 
 
 ### !!!!!!!! git pull
+
+![image](https://user-images.githubusercontent.com/79700810/135442971-30957656-bc59-487e-be7c-74077f042e6e.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135439193-330350b9-e33a-49b1-ae61-13c6aa6c9de6.png)
 
@@ -426,11 +428,14 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 
 ### !!!!!!!! git clone
 
+![image](https://user-images.githubusercontent.com/79700810/135443641-5231e289-c6f3-4bf8-ad47-2883c4badefd.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135443831-d574f526-3678-438b-8a33-f53a1f9c686f.png)
 
 ## dotnet run
 
-![image](https://user-images.githubusercontent.com/79700810/135277373-5785842f-e6ef-4b19-805c-a9a02716418c.png)
+![image](https://user-images.githubusercontent.com/79700810/135443926-8fe76615-6c31-4e85-835b-a8d3d8407964.png)
+
 
 ## Проверка DEV1
 
