@@ -173,6 +173,11 @@ Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
 
+```powershell
+Add-DnsServerResourceRecordA -Name "lorrylogapi" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.3" -CreatePtr 
+```
+![image](https://user-images.githubusercontent.com/79700810/135402777-83c63a4d-2c80-4fe1-ab59-277ae025e17b.png)
+
   ## Проверка AD DNS
 
 ![image](https://user-images.githubusercontent.com/79700810/135211673-ed82d9e5-0646-4672-be7e-c1f19d1fd47c.png)
@@ -344,7 +349,8 @@ select * from Vehicle
 
 ![image](https://user-images.githubusercontent.com/79700810/135277610-4c0a60a8-5823-4fa6-80e8-7cf5b504a613.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135278161-432a47e6-23cc-497a-86c8-c2bae2052002.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135402103-bb745ded-3a11-4e53-acc6-c3633fcc5951.png)
 
 
 ### !!!!!!!! git pull
