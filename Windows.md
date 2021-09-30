@@ -469,3 +469,23 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 
 ![image](https://user-images.githubusercontent.com/79700810/135402954-0514daf7-d9dd-418f-9e41-e1186d1c3a26.png)
 
+
+## ADCS
+```powershell
+Install-WindowsFeature -Name AD-Certificate, ADCS-Web-Enrollment -IncludeManagementTools
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135455898-04ff07b7-4416-48e4-beab-af2bd0527816.png)
+
+```powershell
+Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName "ECDSA_P256#Microsoft Software Key Storage Provider" -KeyLength 256 -HashAlgorithmName SHA256 -CACommonName "RootHT" -force
+```
+
+![image](https://user-images.githubusercontent.com/79700810/135461720-6660d814-5aa9-401c-ba24-c00825918f2e.png)
+![image](https://user-images.githubusercontent.com/79700810/135461761-d40bb5e5-fb6f-4299-9946-1e1111eef44b.png)
+![image](https://user-images.githubusercontent.com/79700810/135461825-f5a79613-50cc-404d-acff-310a098182e9.png)
+
+
+![image](https://user-images.githubusercontent.com/79700810/135458156-bdcb4768-dc14-4dea-b575-ae81719e02d5.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135458420-feb14739-510d-47f1-a45e-497cfeaa5f82.png)
