@@ -344,6 +344,10 @@ select * from Vehicle
 
 ### !!!!!!!! git clone
 
+![image](https://user-images.githubusercontent.com/79700810/135435940-01e62b51-bdd5-43c0-99d1-990a60d537ba.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135436103-5cb74ffb-029d-46da-ae7c-5c4014dbfb53.png)
+
 
 ## connect url
 
