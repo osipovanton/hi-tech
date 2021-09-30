@@ -362,6 +362,15 @@ http://172.30.0.3:5001;http://lorrylogapi.ht2021.local:5001
 
 ### !!!!!!!! git pull
 
+![image](https://user-images.githubusercontent.com/79700810/135439193-330350b9-e33a-49b1-ae61-13c6aa6c9de6.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135439334-86d25d36-b72c-4d74-b22d-2db7339f1d0c.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135439403-f2e1a336-e2a6-4e84-a900-34e2d6b016fe.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135439423-74b80a48-844c-45e0-873a-e6beda1324d0.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135439641-ec0128ec-d877-49cd-9d2a-872cf462b2d3.png)
 
 ## APP
 
