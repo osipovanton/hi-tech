@@ -135,3 +135,24 @@ ESXi2
 ![image](https://user-images.githubusercontent.com/79700810/135419385-5fbedbdb-29f9-4181-90dd-f3b6bf355417.png)
 
 
+## DS 
+esix1
+![image](https://user-images.githubusercontent.com/79700810/135424654-b13ce591-277f-4497-b5b7-506383f8ff88.png)
+![image](https://user-images.githubusercontent.com/79700810/135425020-48bee611-c3f8-4321-9465-6139ddf2f4e1.png)
+![image](https://user-images.githubusercontent.com/79700810/135425245-3673b0f8-9517-4d71-83cc-8ba99079b6c8.png)
+![image](https://user-images.githubusercontent.com/79700810/135425308-e9f5cae8-5e18-49b9-93a8-b5053a74e116.png)
+
+esix2
+![image](https://user-images.githubusercontent.com/79700810/135425552-335f8a01-67db-4db6-b359-26c636d20cf0.png)
+![image](https://user-images.githubusercontent.com/79700810/135425598-ca1e9de5-dd03-4599-ac46-70fa1652e556.png)
+
+
+## ds cluster
+
+![image](https://user-images.githubusercontent.com/79700810/135425651-8e1dff4a-cc65-4058-b78d-bf1a625cff8d.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135424715-476f138e-9981-4ba2-b2af-34326947fe0f.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135424825-963eaff1-0a83-4e81-b5cf-89e3a8f44e6d.png)
+
+
