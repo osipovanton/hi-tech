@@ -62,10 +62,24 @@ Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdate
 
 ![image](https://user-images.githubusercontent.com/79700810/135415142-aea9af3f-526c-4056-a70d-e0a14d8ad472.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135416603-83f0247a-5e4d-46aa-9af4-1de417cf4d21.png)
+![image](https://user-images.githubusercontent.com/79700810/135416679-df40adf2-090e-4df7-a8a7-c471870b5917.png)
+
+## add identyty 
+![image](https://user-images.githubusercontent.com/79700810/135416696-277ff07d-b2c0-4730-aa3a-3a6129630d06.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135416779-513d68ec-e22d-4300-8af4-3c2696ad82a4.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135416873-ee606086-dff7-4f8c-8206-60bf0e18a094.png)
+
+
 ## admin group
 
+![image](https://user-images.githubusercontent.com/79700810/135417144-e1c18168-8163-4639-86b2-541e3f0a3c4d.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135417075-890fb75f-d344-481d-afca-6fcf3e79cf07.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135418208-fa92b8af-7630-4046-9dc0-5e8bb750860f.png)
 
 ## host config 
 
@@ -86,4 +100,35 @@ ESXi2
 ![image](https://user-images.githubusercontent.com/79700810/135414229-6f95de7c-153e-4053-a1e1-d872b878a2e2.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135414423-8a1ff8fd-413a-47d0-810b-d13a04da93ef.png)
+
+
+## datacenter
+
+![image](https://user-images.githubusercontent.com/79700810/135418065-f2ed6bb9-b991-4f41-94b5-68ce66819e90.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135418349-564c76b0-86ed-4804-a63d-22687b68f943.png)
+
+
+## cluster
+
+![image](https://user-images.githubusercontent.com/79700810/135418408-b9fe568f-aca6-4161-8baf-9346e3caba1e.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135418479-ab912d91-6484-4f11-b4f0-5c4c5090a7e5.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135418557-6e576f50-c97d-4296-9a36-abd301c09a82.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135418739-5239bafe-4eac-4a53-9ae6-836423b68696.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135418775-18cd39bd-1aec-4623-a40c-4d120c86c725.png)
+
+## network
+
+![image](https://user-images.githubusercontent.com/79700810/135418985-291690d8-417b-47ee-b865-fe2f522f0580.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135419126-ef91ef9f-eaad-47dd-9da7-876b25bf22b1.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135419255-3f395c59-b38a-42d3-9b2b-55b1ae537412.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135419385-5fbedbdb-29f9-4181-90dd-f3b6bf355417.png)
+
 
