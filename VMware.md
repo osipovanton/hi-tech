@@ -173,7 +173,7 @@ esix2
 
 
 
-## create TM
+## create VM
 
 ![image](https://user-images.githubusercontent.com/79700810/135428868-35fe3c27-fffd-4c80-a653-5f694a80be59.png)
 
@@ -194,6 +194,8 @@ esix2
 
 ![image](https://user-images.githubusercontent.com/79700810/135429857-abb21abc-ffe9-4728-a70d-fd16969c99d4.png)
 
-
+## install centos
+![image](https://user-images.githubusercontent.com/79700810/135430573-9b52ed0a-d064-465c-a147-5c68a1ac293e.png)
+![image](https://user-images.githubusercontent.com/79700810/135430773-d2584e3d-0dbf-49bb-a2ca-5b74504e08fc.png)
 
 
