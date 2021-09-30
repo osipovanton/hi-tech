@@ -47,8 +47,22 @@ Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdate
 
 ![image](https://user-images.githubusercontent.com/79700810/135412335-a0e1a285-dd9d-4a45-8701-fdc6cb6b78ee.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135414383-b5d1b48c-e824-443a-a498-7fa76ec8b813.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135414539-cc414ffd-62a5-4828-bb27-b842005cd905.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135414591-3fb60e05-bd09-4d39-baee-aa0850dd5932.png)
 
 ## join domen
+![image](https://user-images.githubusercontent.com/79700810/135414702-873b227e-e2ca-4b7d-8fcf-b91ca597822c.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135414774-9d158875-918c-48e7-a47e-8337ac243c45.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135415042-cd48f4c9-cb0d-4ae7-bc20-6532a7ee8b0c.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135415142-aea9af3f-526c-4056-a70d-e0a14d8ad472.png)
+
+## admin group
 
 
 
@@ -65,6 +79,11 @@ ESXi1
 
 ![image](https://user-images.githubusercontent.com/79700810/135413309-84959e81-8e3e-4c13-87c5-759e8d7e27f6.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135414107-1c936869-0241-49aa-92a2-d34a484e6e48.png)
 
 ESXi2
+
+![image](https://user-images.githubusercontent.com/79700810/135414229-6f95de7c-153e-4053-a1e1-d872b878a2e2.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135414423-8a1ff8fd-413a-47d0-810b-d13a04da93ef.png)
 
