@@ -155,4 +155,17 @@ esix2
 
 ![image](https://user-images.githubusercontent.com/79700810/135424825-963eaff1-0a83-4e81-b5cf-89e3a8f44e6d.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135425750-3da57df5-2b52-485b-8d49-b8414643c284.png)
+
+## NFS
+
+![image](https://user-images.githubusercontent.com/79700810/135426724-0f5afb50-f444-471a-9cfc-ce66c03753f5.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135426758-d968230c-b0c2-47a5-8015-4306c9b6ebf6.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135426842-2ce8ce9a-4fa6-4b8a-ab5c-31efbad3fbac.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135426881-16d8e56c-1687-4f5f-9ece-2e2043dae7de.png)
+
+
 
