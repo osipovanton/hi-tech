@@ -200,3 +200,9 @@ esix2
 
 ![image](https://user-images.githubusercontent.com/79700810/135435183-7fc74a54-e07a-4fae-81aa-6bcbbc727bbd.png)
 
+## create TM
+
+![image](https://user-images.githubusercontent.com/79700810/135445732-c6a79957-bf19-43dd-a251-5db26190c6ee.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135445763-f7715c40-59d5-4e56-9c99-5a5212b291da.png)
+
