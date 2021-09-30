@@ -350,10 +350,13 @@ select * from Vehicle
 
 
 ## connect url
-
+```
+"Server=bd.ht.2021.local; Database=LorryLog; Trusted_Connection=True;"
+```
 ![image](https://user-images.githubusercontent.com/79700810/135277610-4c0a60a8-5823-4fa6-80e8-7cf5b504a613.png)
-
-
+```
+http://172.30.0.3:5001;http://lorrylogapi.ht2021.local:5001
+```
 ![image](https://user-images.githubusercontent.com/79700810/135402103-bb745ded-3a11-4e53-acc6-c3633fcc5951.png)
 
 
