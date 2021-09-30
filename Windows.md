@@ -343,14 +343,30 @@ select * from Vehicle
 ![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
 
 ## DEV2
+```
+apt-get install vim
+apt-get install sssd-ad sssd-tools realmd adcli
+```
 
 ![image](https://user-images.githubusercontent.com/79700810/135448670-77bf4cad-09c9-47e4-bc29-b1d72658d54d.png)
-
+```
+vim /etc/systemd/timesyncd.conf
+```
 ![image](https://user-images.githubusercontent.com/79700810/135449305-3a6cb4fc-6e93-4bcd-bd6f-592c69084355.png)
+```
+realm discover
+```
 
 ![image](https://user-images.githubusercontent.com/79700810/135449383-40f7e1f8-b638-4e4f-9501-507992c885d8.png)
-
+```
+realm join ht2021.local
+realm list
+```
 ![image](https://user-images.githubusercontent.com/79700810/135449633-dcd64aae-b34b-48a2-9796-c5d93f7b9f06.png)
+```
+pam-auth-update --enable mkhomedir
+reboot
+```
 
 ![image](https://user-images.githubusercontent.com/79700810/135449675-1c4c951d-2e18-4537-ae61-aab39a8d3ff6.png)
 
