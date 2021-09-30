@@ -168,10 +168,36 @@ esix2
 
 ![image](https://user-images.githubusercontent.com/79700810/135419385-5fbedbdb-29f9-4181-90dd-f3b6bf355417.png)
 
-## network2 DMZ
+## network2 DMZ create ds
+
+![image](https://user-images.githubusercontent.com/79700810/135446933-0c0d656b-12e0-4039-bb42-1647c4e69bd1.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135446954-4ae8563c-2d10-43e6-bd96-d4fbfdd940ea.png)
+![image](https://user-images.githubusercontent.com/79700810/135446997-b349f1bc-8387-48d7-849f-1521ecb1f66f.png)
+![image](https://user-images.githubusercontent.com/79700810/135447020-90f98242-ad1a-4e6f-9914-0a9c723f089b.png)
+
+## add ds host 
+![image](https://user-images.githubusercontent.com/79700810/135447098-4e454a22-d3c2-4deb-ba3c-bc9c843c6b51.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447131-d96c126d-a01e-49b4-bfe7-135e60ec68a7.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447182-91768211-ac7b-4b2f-b394-d0ff024bb110.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447245-f7ad2161-61e0-4435-9fe9-c08ba13af5b6.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447279-12310165-4c26-465c-a2a6-f7ca06063bf9.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447301-8516729a-d7c5-4247-827c-2e530a8df388.png)
+
+## add gp host vmk
+![image](https://user-images.githubusercontent.com/79700810/135447370-29741047-3580-4196-87b5-e5eda2b0af30.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135447393-4dde2ee9-d651-459e-bab6-73ebbdbcb154.png)
 
 
+![image](https://user-images.githubusercontent.com/79700810/135447462-923aaf13-ce84-42f6-aa2c-845e395daa06.png)
 
+![image](https://user-images.githubusercontent.com/79700810/135447630-379e8084-692f-46dc-81a4-da05a25399fa.png)
 
 ## create VM
 
