@@ -342,7 +342,17 @@ select * from Vehicle
 
 ![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
 
+## git 
+
+![image](https://user-images.githubusercontent.com/79700810/135442198-80415828-b7bc-44b9-894d-f9e7c125df8f.png)
+
+fork 
+
+![image](https://user-images.githubusercontent.com/79700810/135442254-515d7fbd-653c-4355-b28a-c3c76e40f4a6.png)
+
+
 ### !!!!!!!! git clone
+![image](https://user-images.githubusercontent.com/79700810/135442313-a2812500-9360-41ef-a53c-37bf25c3bb0e.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135435940-01e62b51-bdd5-43c0-99d1-990a60d537ba.png)
 
