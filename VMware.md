@@ -134,6 +134,9 @@ ESXi2
 
 ![image](https://user-images.githubusercontent.com/79700810/135419385-5fbedbdb-29f9-4181-90dd-f3b6bf355417.png)
 
+## network2 DMZ
+
+
 
 ## DS 
 esix1
@@ -166,6 +169,29 @@ esix2
 ![image](https://user-images.githubusercontent.com/79700810/135426842-2ce8ce9a-4fa6-4b8a-ab5c-31efbad3fbac.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135426881-16d8e56c-1687-4f5f-9ece-2e2043dae7de.png)
+
+
+## create TM
+
+![image](https://user-images.githubusercontent.com/79700810/135428868-35fe3c27-fffd-4c80-a653-5f694a80be59.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135428905-f1024ced-2c62-4e00-991d-d32c48b23448.png)
+
+
+![image](https://user-images.githubusercontent.com/79700810/135429197-708494d4-9eaa-4b27-9ef1-003b91b7e327.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429303-c53136ff-8711-4ca5-a1a5-a20aa454f6a8.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429405-4c8b6bf4-413b-4b05-9deb-002951323123.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429593-a1e5b1af-5b34-433d-b81f-51a4acd0a5eb.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429674-8d36f7ac-ae09-49d3-853d-f10a2c03e7e8.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429749-d7241b86-ecab-416e-bb98-cc5e96723050.png)
+
+![image](https://user-images.githubusercontent.com/79700810/135429857-abb21abc-ffe9-4728-a70d-fd16969c99d4.png)
+
 
 
 
