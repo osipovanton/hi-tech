@@ -442,8 +442,16 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 Результат успешной установки сервера
 ![image](https://user-images.githubusercontent.com/79700810/135232205-060c6a4c-f2c3-41a5-89c2-d92da5e3bb09.png)
 
+Менеджер управления можно вызвать в powershell командой 
+```
+SQLServerManager15.msc
+```
+TCP/IP выбираем Enabled и задаем порт 1433 для подключения всех клиентов
+![image](https://user-images.githubusercontent.com/79700810/135622294-b4e2179f-865a-4115-b723-b539375d39ac.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135239938-ef82779f-0e26-412d-b4d8-57b7dfb11d2a.png)
+Вслучае необходимости MSSQL сервер можно перезагрузить во вкладке sql server service
+![image](https://user-images.githubusercontent.com/79700810/135622444-8ead4b6a-5a63-4c74-be72-4311036b61df.png)
+
 
 ## DEV1
 ```powershell
