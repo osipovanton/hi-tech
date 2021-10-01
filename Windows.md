@@ -391,6 +391,7 @@ Add-ADGroupMember -Identity BD -Members lorries
 ```powershell
 Add-Computer -DomainName "ht2021.local"
 ```
+
 Результат команды добавления в домен
 ![image](https://user-images.githubusercontent.com/79700810/135219110-dd760bf4-ba07-4050-9898-df8f9af9a031.png)
 
@@ -398,11 +399,13 @@ Add-Computer -DomainName "ht2021.local"
 ```powershell
 Restart-Computer
 ```
+
 Для подключения к базеданных удаленно необходимо разрешить правила в межсетевом экране
 Правило TCP на порт 1433
 ```powershell
 New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
 ```
+
 Результат создание правила TCP
 ![image](https://user-images.githubusercontent.com/79700810/135220934-1c17e457-1931-411c-adce-e261e91349da.png)
 
@@ -425,35 +428,46 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 ## Установка сервера MSSQL на BD
 
 Запускаем файл exe переходим в custom оставляем путь скачивания по умалчанию
+
 ![image](https://user-images.githubusercontent.com/79700810/135219676-8d2ca0e5-387d-4543-bfdc-a67505a1d84c.png)
 
 Выбираем new SQL server 
+
 ![image](https://user-images.githubusercontent.com/79700810/135230606-251a4d2f-9142-40d9-a6a7-dbc5d5aacf97.png)
 
 Выбираем необходимые допалнения
+
 ![image](https://user-images.githubusercontent.com/79700810/135231100-39d6c692-5a54-4690-afcd-81d165340494.png)
 
 Задаем имя для базый данных
+
 ![image](https://user-images.githubusercontent.com/79700810/135231163-beb6ae0f-75c3-43a1-a5f2-54fb3eeff6df.png)
 
 Выбираем способ аунтификации и добавляем группу безопастности BD
+
 ![image](https://user-images.githubusercontent.com/79700810/135231356-6f921110-783e-42f9-bd29-b9ef3271a795.png)
 
 Результат успешной установки сервера
+
 ![image](https://user-images.githubusercontent.com/79700810/135232205-060c6a4c-f2c3-41a5-89c2-d92da5e3bb09.png)
 
 Менеджер управления можно вызвать в powershell командой 
+
 ```
 SQLServerManager15.msc
 ```
+
 TCP/IP выбираем Enabled и задаем порт 1433 для подключения всех клиентов
+
 ![image](https://user-images.githubusercontent.com/79700810/135622294-b4e2179f-865a-4115-b723-b539375d39ac.png)
 
 Вслучае необходимости MSSQL сервер можно перезагрузить во вкладке sql server service
+
 ![image](https://user-images.githubusercontent.com/79700810/135622444-8ead4b6a-5a63-4c74-be72-4311036b61df.png)
 
 
 ## DEV1
+
 ```powershell
 Add-Computer -NewName DEV1 -DomainName "ht2021.local"
 ```
