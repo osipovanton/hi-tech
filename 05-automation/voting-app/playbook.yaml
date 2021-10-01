@@ -74,7 +74,7 @@
   - name: "Allow md5 connection for the db user"
     lineinfile:
       path: /var/lib/pgsql/data/pg_hba.conf
-      regexp: '^host +all'
+      regexp: '^host +all +all 127.+'
       line: 'host all all 127.0.0.1/8 md5'
     notify: restart postgres
   
@@ -115,7 +115,48 @@
   
   - name: "publish"
     shell: "dotnet publish -c Release -o /root/example-voting-app/worker/out /root/example-voting-app/worker/src/Worker/Worker.csproj"
+
+  - name: "Copy worker systemd unit"
+    copy:
+      src: "worker.service"
+      dest: "/etc/systemd/system/worker.service"
   
+  - name: "Reload daemon"
+    systemd:
+      daemon_reload: yes
+  
+  - name: "Enable worker service"
+    service:
+      name: worker
+      enabled: yes
+      state: started
+  
+  - name: "Nodejs"
+    dnf:
+      name: nodejs
+      enablerepo: "@nodejs:10"
+      state: present
+  
+  - name: "Install modules"
+    npm:
+      path: /root/example-voting-app/result
+      state: present
+  
+  - name: "Copy result systemd unit"
+    copy:
+      src: "results.service"
+      dest: "/etc/systemd/system/result.service"
+  
+  - name: "Reload daemon"
+    systemd:
+      daemon_reload: yes
+  
+  - name: "Enable result service"
+    service:
+      name: result
+      enabled: yes
+      state: started
+
   handlers:
     - name: restart postgres
       service:
