@@ -1,11 +1,13 @@
 
 
 
+
+
 ## Базова конфигурация
 
-## на Виртуальной маштне AD
+## на Виртуальной машине AD
 
-в строке поеска уазываем Powershell и запускаем его от имени администратор 
+В строке поиска уазываем Powershell и запускаем его от имени администратор 
 
 ![image](https://user-images.githubusercontent.com/79700810/135076082-526bacb5-788e-41e1-97b6-478b23334b2e.png)
 
@@ -51,58 +53,65 @@ Set-TimeZone -Id "Russian Standard Time"
 Результат команды измениея часового пояса
 ![image](https://user-images.githubusercontent.com/79700810/135077137-a6b43163-7ea7-4fb2-9e33-c555f1d03037.png)
 
-
+Настройка правил межсетевого экрана (разрешение трафика ICMP)
 ```powershell
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
 ```
+Результат команды создание правила
 ![image](https://user-images.githubusercontent.com/79700810/135084032-127b3938-8887-43af-b922-407d02f7f7e0.png)
 
-
+Команда для перезагрузки виртуальной машины 
 ```powershell
 Restart-Computer
 ```
 
-## BD
+## на Виртуальной машине BD
 
+По аналогии с AD задаем имя виртуальной машине
 ```powershell
 Rename-Computer -NewName BD
 ```
+Результат команды
 ![image](https://user-images.githubusercontent.com/79700810/135078689-e391018d-d787-46c0-b9a0-099bd68d2488.png)
 
+В данном случаее будем использовать переменную $GetIndex для определения индекса сетевого адаптера
 ```powershell
 $GetIndex = Get-NetAdapter 
 New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.2 -PrefixLength 24 -DefaultGateway 172.30.0.254
 ```
-
+Результат команды (назначение статических настроек сетевого интерфейса)
 ![image](https://user-images.githubusercontent.com/79700810/135078577-974c7ced-0520-4c8b-abf4-086b6e8099a4.png)
 
+добавление DNS серверов
 ```powershell
 Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
 ```
-
+Результат команды измененемя DNS
 ![image](https://user-images.githubusercontent.com/79700810/135078826-7608a631-22a0-4d47-b7d4-d3aa392dcb35.png)
 
-
+Комагда изменения часового пояса
 ```powershell
 Set-TimeZone -Id "Russian Standard Time"
 ```
-
+Результат команды измениея часового пояса
 ![image](https://user-images.githubusercontent.com/79700810/135079028-814169e5-4aa6-49a4-9004-0ed185bce153.png)
 
+Настройка правил межсетевого экрана (разрешение трафика ICMP)
 ```powershell
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
 ```
-
+Результат команды создание правила
 ![image](https://user-images.githubusercontent.com/79700810/135084143-03aec0f0-07a3-4919-b70f-d9c7d3bf1400.png)
 
-
+Команда для перезагрузки виртуальной машины
 ```powershell
 Restart-Computer
 ```
-## APP
+## на Виртуальной машине APP
 
 ![image](https://user-images.githubusercontent.com/79700810/135079269-d193157f-3d1c-4bdf-b12e-c9a29c51ad52.png)
 
+дананя виртуальная машина не имеет графического интерфейса (запускаем powershell)
 ```powershell
 Rename-Computer -NewName APP
 $GetIndex = Get-NetAdapter 
