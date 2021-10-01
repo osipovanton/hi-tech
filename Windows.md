@@ -16,13 +16,15 @@
  ⁃ Все изменения приложения должны быть добавлены с систему контроля версий
 
 
+![webL1L2-Page-4 drawio](https://user-images.githubusercontent.com/79700810/135600652-d9a7a35d-3ef3-433d-b012-7cfa0e54b2c9.png)
+
 
 ## Базова конфигурация
-|AD             |BD             |APP             |
-| ------------- | ------------- | ------------- |   
-|Windows Server 2019 GUI |Windows Server 2019 GUI   |Windows Server 2019 Core|
-|Administartor |Administartor   |Administartor|
-|Pa$$w0rd |Pa$$w0rd  |Pa$$w0rd|
+|AD             |BD             |APP             |DEV1           |DEV2           |
+| ------------- | ------------- | ------------- |    ------------- |  ------------- | 
+|Windows Server 2019 GUI |Windows Server 2019 GUI   |Windows Server 2019 Core|Windows 10           |Ubuntu           |
+|Administartor |Administartor   |Administartor|Admin           |user           |
+|Pa$$w0rd |Pa$$w0rd  |Pa$$w0rd|Pa$$w0rd          |Pa$$w0rd           |
 
 ## на Виртуальной машине AD
 
