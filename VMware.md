@@ -12,6 +12,20 @@
 ![gazprom-Page-4 drawio](https://user-images.githubusercontent.com/79700810/135603701-8bae9348-4f1c-4dcf-b6d9-abf292ffc81c.png)
 
 ## Базовая конфигурация
+|ESXivCSA             |vCSA1             |ESXi1           |ESXi2           |
+| ------------- | ------------- | ------------- |    ------------- | 
+|ESXi 7.0.2 |vCenter Server 7.0.2   |ESXi 7.0.2|ESXi 7.0.2         |
+|root |root   |root|root         |
+|Pa$$w0rd |Pa$$w0rd  |Pa$$w0rd|Pa$$w0rd          |
+
+## Основные службы 
+- Active directory
+- DNS
+- vSphere Hypervisor
+- vCenter server
+- Distributed Switch 
+- NFS
+- VMware DRS
 
 ## AD 
 ```powershell
