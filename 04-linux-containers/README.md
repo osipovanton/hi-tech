@@ -128,3 +128,51 @@ helm completion bash > /etc/bash_completion.d/helm
 exit
 source /etc/bash_completion.d/helm
 ```
+
+## NFS  server
+
+```bash
+hostnamectl set-hostname nfs
+
+nmcli connection modify ens192 \
+    connection.autoconnect yes \
+    ifname ens192 \
+    ipv4.method manual \
+    ipv4.address 172.30.1.21/24 \
+    ipv4.gateway 172.30.1.254 \
+    ipv4.dns 172.30.0.1
+
+nmcli connection up ens192
+```
+
+```bash
+dnf install nfs-utils
+systemctl enable --now nfs-server
+mkdir /srv/nfs
+```
+
+```bash
+vim /etc/exports
+``` 
+
+```
+/srv/nfs 172.30.1.0/24(rw,sync,no_root_squash,no_subtree_check)
+```
+
+```bash
+exportfs -ra
+exportfs -v
+```
+
+```bash
+firewall-cmd --new-zone=nfs --permanent
+firewall-cmd --zone=nfs --add-service=nfs --permanent
+firewall-cmd --zone=nfs --add-source=172.30.1.0/24 --permanent
+firewall-cmd --reload
+```
+
+```bash
+ssh root@172.30.1.11 dnf install -y nfs-utils
+ssh root@172.30.1.12 dnf install -y nfs-utils
+ssh root@172.30.1.12 dnf install -y nfs-utils
+```
