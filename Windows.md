@@ -502,7 +502,10 @@ select * from Vehicle
 ```
 
 ## Настройка клиента DEV2
+
+
 ```
+
 apt-get install vim
 apt-get install sssd-ad sssd-tools realmd adcli
 ```
