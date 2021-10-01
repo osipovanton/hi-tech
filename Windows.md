@@ -612,15 +612,10 @@ Restart-Computer
 Restart-Computer
 ```
 ```powershell
-New-NetFirewallRule -DisplayName "WebApi default 5000" -Direction Inbound -LocalPort 5000 -Protocol TCP -Action Allow
-New-NetFirewallRule -DisplayName "WebApi Browser 5000" -Direction Inbound -LocalPort 5000 -Protocol UDP -Action Allow
-
 New-NetFirewallRule -DisplayName "WebApi default 5001" -Direction Inbound -LocalPort 5001 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -LocalPort 5001 -Protocol UDP -Action Allow
 ```
-![image](https://user-images.githubusercontent.com/79700810/135277077-02202be5-a645-4a4e-af1a-f6981d3897b3.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135277044-6ae24bf0-92e6-45f3-b72f-8dfaa6b0037a.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135277119-4309f92b-9c51-4440-a5d4-820d5260c9ef.png)
 
