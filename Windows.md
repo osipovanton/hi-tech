@@ -385,30 +385,45 @@ Add-ADGroupMember -Identity BD -Members lorries
 В Server Manager во вкладке Tools переходим в Active directory users and computers далее в OU
 ![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
 
-## BD
+## Настройка BD
 
-
+Присойденение к домену
 ```powershell
 Add-Computer -DomainName "ht2021.local"
 ```
+Результат команды добавления в домен
 ![image](https://user-images.githubusercontent.com/79700810/135219110-dd760bf4-ba07-4050-9898-df8f9af9a031.png)
 
-
+Перезагрузка сервера
 ```powershell
 Restart-Computer
 ```
-
+Для подключения к базеданных удаленно необходимо разрешить правила в межсетевом экране
+Правило TCP на порт 1433
 ```powershell
 New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
 ```
+Результат создание правила TCP
 ![image](https://user-images.githubusercontent.com/79700810/135220934-1c17e457-1931-411c-adce-e261e91349da.png)
+
+Правило UDP на порт 1433
 ```powershell
 New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
 ```
+
+Результат создание правила UDP
 ![image](https://user-images.githubusercontent.com/79700810/135221149-d182072d-f02d-4b25-a19d-5a7f57a7a91f.png)
 
 
-## install MSSQL
+## Конфигурация элементов в powershell
+```powershell
+Add-Computer -DomainName "ht2021.local"
+Restart-Computer
+New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
+```
+## Установка сервера MSSQL на BD
+
 
 ![image](https://user-images.githubusercontent.com/79700810/135219676-8d2ca0e5-387d-4543-bfdc-a67505a1d84c.png)
 
