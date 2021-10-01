@@ -1,9 +1,28 @@
 
+Разработчик предоставил вам приложение, которое необходимо для тестирование развернуть на вашей инфраструктуре под управление Windows 
 
+ ⁃ Приложение написано на .net 
+ ⁃ Использует entity framework
+ ⁃ Использует локальные пути
+
+Общие требования 
+
+ ⁃ приложение должно быть доступно по адресу http://lorrylogapi.ht2021.local/vehicles и ip адресу http://172.30.0.3/vehicles 
+
+ ⁃ Доступ к базе данных должен осуществляться через централизованно управляемую учетную запись lorries@ht2021.local 
+
+ ⁃ Приложение должно быть запущенна на разных серверах пользователь lorries@ht2021.local должен иметь локальный доступ и управляться централизовано
+
+ ⁃ Все изменения приложения должны быть добавлены с систему контроля версий
 
 
 
 ## Базова конфигурация
+|AD             |BD             |APP             |
+| ------------- | ------------- | ------------- |   
+|Windows Server 2019 GUI |Windows Server 2019 GUI   |Windows Server 2019 Core|
+|Administartor |Administartor   |Administartor|
+|Pa$$w0rd |Pa$$w0rd  |Pa$$w0rd|
 
 ## на Виртуальной машине AD
 
@@ -122,7 +141,7 @@ Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Prof
 Restart-Computer
 ```
 
-## All Config
+## Конфигурация всех виртуальных машин в powershell
 
 AD
 
@@ -160,32 +179,37 @@ Restart-Computer
 
 ## Проверка c AD
 
+Проверка коннективности
 
 ![image](https://user-images.githubusercontent.com/79700810/135084339-b734e3aa-8948-48ed-b21d-89450149fc36.png)
 
 
-## Install AD
+## Установка контролера домена на AD
 
+Установка роли и необходимов компонентов управления
 ```powershell
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```
-
+Результат команды уставноки роли
 ![image](https://user-images.githubusercontent.com/79700810/135089113-45590dc5-2691-435d-b07e-21dcc331a611.png)
 
-
+Создание домена ht2021.local и установка DNS сервера
 ```powershell
 Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
 ```
+Результат команды 
 ![image](https://user-images.githubusercontent.com/79700810/135086754-285e1bd2-59b4-45a0-adc9-79c4a574b083.png)
 
 
   ## DNS
 
+Добавление обратной зоны просмотра на DNS сервере 
 ```powershell
 Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
 ```
 
 ![image](https://user-images.githubusercontent.com/79700810/135089385-f9b18d69-4c0d-40d9-a100-4a3fc80be898.png)
+
 
 ```powershell
 Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
