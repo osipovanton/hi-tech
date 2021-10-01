@@ -3,42 +3,52 @@
 
 ## Базова конфигурация
 
-## AD
+## на Виртуальной маштне AD
 
-Powershell
+в строке поеска уазываем Powershell и запускаем его от имени администратор 
 
 ![image](https://user-images.githubusercontent.com/79700810/135076082-526bacb5-788e-41e1-97b6-478b23334b2e.png)
 
-
+Для изменения имени виртуальной машины указываем новое имя
 ```powershell
 Rename-Computer -NewName AD
 ```
-
+Результат команды (изменения вступят в силу после перезагрузки виртуальной машины)
 ![image](https://user-images.githubusercontent.com/79700810/135077764-128c6a5b-8b49-4233-ab01-28a4adff3ca7.png)
 
-
+Для назначение сетевых конфигураций необходимо определить индек интерфейса
 ```powershell
 Get-NetAdapter
 ```
-
+Результат команды (в данном случае индификатор имеет значение 4)
 ![image](https://user-images.githubusercontent.com/79700810/135076517-7ec62953-499f-4821-8ac5-ffa8ef9d131b.png)
 
+Назначаем IP адрес, маску, шлюз по умалчанию
 ```powershell
 New-NetIPAddress -InterfaceIndex 4 -IPAddress 172.30.0.1 -PrefixLength 24 -DefaultGateway 172.30.0.254
 ```
-
+Результат команды (назначение статических настроек сетевого интерфейса)
 ![image](https://user-images.githubusercontent.com/79700810/135076786-53aec8d7-1fc0-41e7-bb60-5debdc0b2e8c.png)
 
+добавление DNS серверов (виртуальная машина AD будет являться корневым контролерам домена, а также DNS сервером)
 ```powershell
 Set-DnsClientServerAddress -InterfaceIndex 4 -ServerAddresses ("172.30.0.1","8.8.8.8")
 ```
-
+Результат команды измененемя DNS
 ![image](https://user-images.githubusercontent.com/79700810/135077615-686de7e6-d3d2-4b27-9e3d-59abc1705324.png)
 
+В случае необходимости команда изменения времяни (после установки контролера домена автоматически будет настроен сервер времяни для всех клиентов внутри домена)
+```powershell
+Set-date -date "01/10/2021 9:38"
+```
+Результат команды времяни
+![image](https://user-images.githubusercontent.com/79700810/135576509-4e426ac0-a393-49ba-9f39-6e788fe5b66d.png)
+
+Комагда изменения часового пояса (штатной трансляции изменения часового пояса централизовано нет, являеться клиенсткой настройкой)
 ```powershell
 Set-TimeZone -Id "Russian Standard Time"
 ```
-
+Результат команды измениея часового пояса
 ![image](https://user-images.githubusercontent.com/79700810/135077137-a6b43163-7ea7-4fb2-9e33-c555f1d03037.png)
 
 
