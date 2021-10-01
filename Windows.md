@@ -466,18 +466,29 @@ TCP/IP выбираем Enabled и задаем порт 1433 для подкл�
 ![image](https://user-images.githubusercontent.com/79700810/135622444-8ead4b6a-5a63-4c74-be72-4311036b61df.png)
 
 
-## DEV1
+## Настройка клиента DEV1
 
+Клиен должен получить адрес по DHCP с необхадимами опциями добавляем в домен и задаем имя
 ```powershell
 Add-Computer -NewName DEV1 -DomainName "ht2021.local"
 ```
+
+Команда перезагрузки клиента
 ```powershell
 Restart-Computer
 ```
+
+После перезагрузки выбираем other user и заходим lorries
 ![image](https://user-images.githubusercontent.com/79700810/135234607-309ba498-1de5-40c6-a248-f663bf4b0c7f.png)
+
+Запускаем SQL Server Management Studio (SSMS) указываем удаленный сервер для подключения
 
 ![image](https://user-images.githubusercontent.com/79700810/135240076-12049d3d-d476-4e78-9c1d-eaf42960cd3f.png)
 
+создаем новый запрос 
+![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
+
+Создаем базу данных, создаем таблицу, заносим данные
 ```sql
 create database lorrylog;
 
@@ -489,11 +500,8 @@ Insert into Vehicle ([Name],[License], Make, Model,Year) Values ('Thunderdom', '
 
 select * from Vehicle
 ```
-## Проверка 
 
-![image](https://user-images.githubusercontent.com/79700810/135242031-be0c3827-f9b8-44bf-b442-5a093f886208.png)
-
-## DEV2
+## Настройка клиента DEV2
 ```
 apt-get install vim
 apt-get install sssd-ad sssd-tools realmd adcli
