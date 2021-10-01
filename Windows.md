@@ -199,7 +199,7 @@ Restart-Computer
 
 ## Установка контролера домена на AD
 
-Установка роли и необходимов компонентов управления
+Установка роли Active directory и необходимых компонентов управления
 ```powershell
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```
@@ -214,49 +214,62 @@ Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
 ![image](https://user-images.githubusercontent.com/79700810/135086754-285e1bd2-59b4-45a0-adc9-79c4a574b083.png)
 
 
-  ## DNS
+  ## Установка и настройка DNS
 
 Добавление обратной зоны просмотра на DNS сервере 
 ```powershell
 Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
 ```
 
+Результат команды 
 ![image](https://user-images.githubusercontent.com/79700810/135089385-f9b18d69-4c0d-40d9-a100-4a3fc80be898.png)
 
-
+В прямой зоне DNS находится запись dc.ht2021.local (добавим в обратную зону)
 ```powershell
 Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
 ```
+Результат команды добавления в обратую зону
 ![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
 
+Создание записи типа A для приложения в прямой и обратной зоне DNS
 ```powershell
 Add-DnsServerResourceRecordA -Name "lorrylogapi" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.3" -CreatePtr 
 ```
+Результат команды добавления записи
 ![image](https://user-images.githubusercontent.com/79700810/135402777-83c63a4d-2c80-4fe1-ab59-277ae025e17b.png)
 
-  ## Проверка AD DNS
 
+  ## Проверка AD и DNS
+В Server Manager во вкладке Tools переходим в Active directory users and computers и DNS
 ![image](https://user-images.githubusercontent.com/79700810/135211673-ed82d9e5-0646-4672-be7e-c1f19d1fd47c.png)
 
-  ## DHCP
+## Конфигурация active directory и DNS в powershell
+```powershell
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
+Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
+Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
+Add-DnsServerResourceRecordA -Name "lorrylogapi" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.3" -CreatePtr 
+```
 
+## Установка и настройка DHCP сервера на AD
 
+Установка роли DHCP и необходимых компонентов управления
 ```powershell
 Install-WindowsFeature -Name DHCP -IncludeManagementTools
 ```
+Результат команды установки роли DHCP
 ![image](https://user-images.githubusercontent.com/79700810/135211808-5c33709a-d592-4784-9f60-2bef6c36b92f.png)
 
-Авторизуйте DHCP сервер в Active Directory (укажите DNS имя сервера и IP адрес, который будет использоваться DHCP клиентами):
-
+После установки необходимо Авторизовать DHCP сервер в Active Directory (укажите DNS имя сервера и IP адрес, который будет использоваться DHCP клиентами)
 ```powershell
 Add-DhcpServerInDC -DnsName ad.ht2021.local -IPAddress 172.30.0.1
 ```
 
+Результат команды авторизации
 ![image](https://user-images.githubusercontent.com/79700810/135213223-c5d40c20-221a-4a3f-8787-ac3ce268cb41.png)
 
-
-Чтобы Server Manager перестал показывать уведомление о том, что DHCP роль требует настройки, выполните команду:
-
+Чтобы Server Manager перестал показывать уведомление о том, что DHCP роль требует настройки, выполните команду
 ```powershell
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ServerManager\Roles\12 -Name ConfigurationState -Value 2
 ```
@@ -265,87 +278,126 @@ Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ServerManager\Roles\12 -Name Con
 ```powershell
 Restart-Service -Name DHCPServer -Force
 ```
+Результат команды перезагрузки
 ![image](https://user-images.githubusercontent.com/79700810/135213462-a33e9765-4c95-4986-9067-fa81849374b3.png)
 
-
+Создание DHCP пула для выдачи адресов и активация 
 ```powershell
 Add-DhcpServerv4Scope -Name DHCPHT -StartRange 172.30.0.101 -EndRange 172.30.0.110 -SubnetMask 255.255.255.0 -State Active
 ```
+Результат команды создание пула
 ![image](https://user-images.githubusercontent.com/79700810/135213584-b692175b-d318-40c5-afc4-c364b9b4b128.png)
 
+Настройка допалнительных опций (DNS серверов)
 ```powershell
 Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 6 -Value "172.30.0.1","8.8.8.8"
 ```
-
+Результат добавление опций DNS серверов
 ![image](https://user-images.githubusercontent.com/79700810/135213840-d0ec6b72-1e87-4c87-9df7-4c74fc8d4872.png)
 
+Настройка допалнительных опций (шлюз по умалчанию)
 ```powershell
 Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 3 -Value "172.30.0.254"
 ```
+Результат добавление основного шлюза
 ![image](https://user-images.githubusercontent.com/79700810/135214157-ee7d8f67-1408-4cef-8d7d-01883f8a61de.png)
 
+Настройка допалнительных опций (суффикс)
 ```powershell
 Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 15 -Value "ht2021.local"
 ```
-
+Результат добавление суффикса
 ![image](https://user-images.githubusercontent.com/79700810/135214354-7a77a647-5a7e-491e-b427-b2bc0acaf63d.png)
 
-  ## Проверка DHCP
-
+## Проверка DHCP
+В Server Manager во вкладке Tools переходим в DHCP
 ![image](https://user-images.githubusercontent.com/79700810/135214432-9e49bda1-c6ae-4810-afb0-353557790409.png)
 
+## Конфигурация DHCP в powershell
+```powershell
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
+Add-DhcpServerInDC -DnsName ad.ht2021.local -IPAddress 172.30.0.1
+Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ServerManager\Roles\12 -Name ConfigurationState -Value 2
+Restart-Service -Name DHCPServer -Force
+Add-DhcpServerv4Scope -Name DHCPHT -StartRange 172.30.0.101 -EndRange 172.30.0.110 -SubnetMask 255.255.255.0 -State Active
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 6 -Value "172.30.0.1","8.8.8.8"
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 3 -Value "172.30.0.254"
+Set-DhcpServerv4OptionValue -ScopeId 172.30.0.0 -OptionId 15 -Value "ht2021.local"
+```
 
-  ## OU group user
-
+## Настройка элементов active directory
+  
+Создание подраздиления (OU)
 ```powershell
 New-ADOrganizationalUnit -Name "OUBD" -Path "DC=ht2021, DC=local"
 ```
-
+Результат команды создание OU
 ![image](https://user-images.githubusercontent.com/79700810/135214867-a588094d-20e4-405b-b0d2-259c5051b994.png)
 
+Создание группы безопастност
 ```powershell
 New-ADGroup -Name "BD" -Path "OU=OUBD, DC=ht2021, DC=local" -GroupScope Global -SamAccountName BD
 ```
-
+Результат команды создание группы безопастност
 ![image](https://user-images.githubusercontent.com/79700810/135214997-fd4943f0-da1b-42ae-8830-64e1b7f051b8.png)
 
+Создание пользователя 
 ```powershell
 New-ADUser -Name lorries -Enabled $true -Path 'OU=OUBD,DC=ht2021, DC=local' -AccountPassword (ConvertTo-SecureString -String 'Pa$$w0rd' -AsPlainText -Force) -UserPrincipalName lorries@ht2021.local -PasswordNeverExpires $true 
 ```
+
+Результат команды создание пользователя
 ![image](https://user-images.githubusercontent.com/79700810/135218499-7ef57c02-0fc0-46cf-86e2-ca0fc21bb0b9.png)
 
+Добавление пользователя в группу безопастности
 ```powershell
 Add-ADGroupMember -Identity BD -Members lorries
 ```
-
+Результат команды добавления пользователя в группу безопастности
 ![image](https://user-images.githubusercontent.com/79700810/135218611-74776adc-b0be-4922-8020-0d28507adf73.png)
 
- ## GPO 
+## Конфигурация элементов в powershell
+```powershell
+New-ADOrganizationalUnit -Name "OUBD" -Path "DC=ht2021, DC=local"
+New-ADGroup -Name "BD" -Path "OU=OUBD, DC=ht2021, DC=local" -GroupScope Global -SamAccountName BD
+New-ADUser -Name lorries -Enabled $true -Path 'OU=OUBD,DC=ht2021, DC=local' -AccountPassword (ConvertTo-SecureString -String 'Pa$$w0rd' -AsPlainText -Force) -UserPrincipalName lorries@ht2021.local -PasswordNeverExpires $true 
+Add-ADGroupMember -Identity BD -Members lorries
+```
 
+## Создание групповой политики
+ 
+Для запуска приложения и доступу к базе данных пользователь должен обладать правали доступа
+
+В Server Manager во вкладке Tools переходим в group policy management 
+Создаем новую GPO задаем ей имя
 ![image](https://user-images.githubusercontent.com/79700810/135275861-4635c1a3-88dd-4dd5-82a5-d3641570cdcf.png)
 
+Переходим в редактирование затем в Computer Configuration –> Preferences –> Control Panel Settings –> Local Users and Groups далее New -> Local Group
 ![image](https://user-images.githubusercontent.com/79700810/135276156-4f3b6640-d595-4123-a67d-1ccc8920a17c.png)
 
+В group name выбраем из выпадающего списка Administrators (Built-in) далее на add
 ![image](https://user-images.githubusercontent.com/79700810/135276221-6b3f8074-4ffa-4d80-9a2b-689abbe8d5a1.png)
 
+Выбираем группу безопастности BD
 ![image](https://user-images.githubusercontent.com/79700810/135276374-c6686035-50bc-4b3e-873d-30e4489a9a9f.png)
 
-
-
-  ## Проверка
-
+## Проверка пользователя 
+В Server Manager во вкладке Tools переходим в Active directory users and computers далее в OU
 ![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
 
 ## BD
+
 
 ```powershell
 Add-Computer -DomainName "ht2021.local"
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135219110-dd760bf4-ba07-4050-9898-df8f9af9a031.png)
 
+
 ```powershell
 Restart-Computer
 ```
+
 ```powershell
 New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
 ```
