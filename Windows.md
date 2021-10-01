@@ -5,6 +5,9 @@
  ⁃ Использует entity framework
  ⁃ Использует локальные пути
 
+Версия SDK: не ниже 5.0
+Версия EntityFramework: не ниже 3.1.3
+
 Общие требования 
 
  ⁃ приложение должно быть доступно по адресу http://lorrylogapi.ht2021.local/vehicles и ip адресу http://172.30.0.3/vehicles 
@@ -25,6 +28,14 @@
 |Windows Server 2019 GUI |Windows Server 2019 GUI   |Windows Server 2019 Core|Windows 10           |Ubuntu           |
 |Administartor |Administartor   |Administartor|Admin           |user           |
 |Pa$$w0rd |Pa$$w0rd  |Pa$$w0rd|Pa$$w0rd          |Pa$$w0rd           |
+
+## Основные службы 
+- Active directory
+- DNS
+- DHCP
+- Certificate Services
+- MSSQL
+- Dotnet
 
 ## на Виртуальной машине AD
 
