@@ -503,28 +503,42 @@ select * from Vehicle
 
 ## Настройка клиента DEV2
 
+Клиен должен получить адрес по DHCP с необхадимами опциями добавляем в домен и задаем имя
+Устанавливаем необходмые пакеты 
 
 ```
-
+hostnamectl set-hostname DEV2
 apt-get install vim
 apt-get install sssd-ad sssd-tools realmd adcli
 ```
-
+Результат команды установки пакетов
 ![image](https://user-images.githubusercontent.com/79700810/135448670-77bf4cad-09c9-47e4-bc29-b1d72658d54d.png)
+
+При помощи любого текстового редактора указываем сервер времяни
 ```
 vim /etc/systemd/timesyncd.conf
 ```
+
+Указываем поставщиком времяни ad.ht2021.local
 ![image](https://user-images.githubusercontent.com/79700810/135449305-3a6cb4fc-6e93-4bcd-bd6f-592c69084355.png)
+
+Проверяем наличие контролеров домена в сети
 ```
 realm discover
 ```
-
+Результат команды
 ![image](https://user-images.githubusercontent.com/79700810/135449383-40f7e1f8-b638-4e4f-9501-507992c885d8.png)
+
+Присойденеям DEV2 к контролеру домена
 ```
 realm join ht2021.local
 realm list
 ```
+Результат команды добавления и провнрка
 ![image](https://user-images.githubusercontent.com/79700810/135449633-dcd64aae-b34b-48a2-9796-c5d93f7b9f06.png)
+
+Создание автоматической директории для пользователя (домашней)
+
 ```
 pam-auth-update --enable mkhomedir
 reboot
