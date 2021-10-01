@@ -1,7 +1,7 @@
 variable "vsphere_server" {
 	type = string
 	default = "vcsa1.ht2021.local"
-}
+}               
 variable "vsphere_user" {
 	type = string
 	default = "administrator@ht2021.local"
@@ -16,7 +16,6 @@ provider "vsphere" {
   password       = var.vsphere_password
   vsphere_server = var.vsphere_server
 
-  # If you have a self-signed cert
   allow_unverified_ssl = true
 }
 
@@ -51,7 +50,7 @@ resource "vsphere_virtual_machine" "vm1" {
 
   firmware = "efi"
   num_cpus = 2
-  memory   = 1024
+  memory   = 4096
   guest_id = "${data.vsphere_virtual_machine.template.guest_id}"
   scsi_type = "${data.vsphere_virtual_machine.template.scsi_type}"
 
