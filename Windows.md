@@ -387,7 +387,7 @@ Add-ADGroupMember -Identity BD -Members lorries
 
 ## Настройка BD
 
-Присойденение к домену
+Присойденение к домену (вводим учетную запись администратора контроллера домена)
 ```powershell
 Add-Computer -DomainName "ht2021.local"
 ```
@@ -424,18 +424,24 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 ```
 ## Установка сервера MSSQL на BD
 
-
+Запускаем файл exe переходим в custom оставляем путь скачивания по умалчанию
 ![image](https://user-images.githubusercontent.com/79700810/135219676-8d2ca0e5-387d-4543-bfdc-a67505a1d84c.png)
 
+Выбираем new SQL server 
 ![image](https://user-images.githubusercontent.com/79700810/135230606-251a4d2f-9142-40d9-a6a7-dbc5d5aacf97.png)
 
+Выбираем необходимые допалнения
 ![image](https://user-images.githubusercontent.com/79700810/135231100-39d6c692-5a54-4690-afcd-81d165340494.png)
 
+Задаем имя для базый данных
 ![image](https://user-images.githubusercontent.com/79700810/135231163-beb6ae0f-75c3-43a1-a5f2-54fb3eeff6df.png)
 
+Выбираем способ аунтификации и добавляем группу безопастности BD
 ![image](https://user-images.githubusercontent.com/79700810/135231356-6f921110-783e-42f9-bd29-b9ef3271a795.png)
 
+Результат успешной установки сервера
 ![image](https://user-images.githubusercontent.com/79700810/135232205-060c6a4c-f2c3-41a5-89c2-d92da5e3bb09.png)
+
 
 ![image](https://user-images.githubusercontent.com/79700810/135239938-ef82779f-0e26-412d-b4d8-57b7dfb11d2a.png)
 
