@@ -7,7 +7,7 @@ global:
 
 kubeVersion: ""
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "redis"
 commonLabels: {}
 commonAnnotations: {}
 clusterDomain: cluster.local

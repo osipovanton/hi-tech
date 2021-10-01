@@ -66,3 +66,13 @@ To connect to your database from outside the cluster execute the following comma
     kubectl port-forward --namespace default svc/vote-redis-master 6379:6379 &
     redis-cli -h 127.0.0.1 -p 6379
 ```
+
+docker login
+
+docker build vote/ -t 5d20240/ht-vote:latest
+docker build worker/ -t 5d20240/ht-worker:latest
+docker build result/ -t 5d20240/ht-result:latest
+
+docker push 5d20240/ht-vote:latest
+docker push 5d20240/ht-worker:latest
+docker push 5d20240/ht-result:latest

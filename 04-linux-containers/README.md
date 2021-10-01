@@ -77,6 +77,13 @@ all:
       hosts: {}
 ```
 
+```
+kubespray/inventory/mycluster/group_vars/all/all.yml
+http_proxy: ''
+https_proxy: ''
+no_proxy=localhost,127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+```
+
 ```bash
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml
 
