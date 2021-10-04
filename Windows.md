@@ -726,10 +726,12 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 ![image](https://user-images.githubusercontent.com/79700810/135820923-6853b56a-2be5-40f0-848d-d292222593fd.png)
 
 Далее необходимо выбрать план 
+
 ![image](https://user-images.githubusercontent.com/79700810/135820971-56f53a76-1f1b-413f-a3d2-f0264e504df2.png)
  
 
 После проверки выбираем создать
+
 ![image](https://user-images.githubusercontent.com/79700810/135820991-9c52843a-4f77-43b2-ba54-b4e469f548a4.png)
 
 Процесс создание займет время после чего переходим к ресурсу
@@ -737,10 +739,66 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 ![image](https://user-images.githubusercontent.com/79700810/135821097-c70efacb-71af-4cf0-b645-ca1841d015a2.png)
 
 Копируем ссылку в буфер
+
 ![image](https://user-images.githubusercontent.com/79700810/135821165-02e1e05e-91fb-4ca7-af7f-0ed4f0b9554b.png)
 
 Переходим по ссылки
+
 ![image](https://user-images.githubusercontent.com/79700810/135821401-4655cdde-f35d-46d1-8406-73ad89c3a70c.png)
 
 ## Создание простой базы данных в azure
 
+В строке поиска перейти в база данных sql
+
+![image](https://user-images.githubusercontent.com/79700810/135821700-b5a503c9-e353-4455-bb81-c58f6fccafdf.png)
+
+При создании новой ,базы данных необходимо выбрать группу ресурсов (создать новую)
+Задать имя по которому будет доступно и создать сервер
+
+![image](https://user-images.githubusercontent.com/79700810/135821848-9c47516c-1730-48e0-b84e-285c9f096abf.png)
+
+Задаем имя сервера логин и пароль от учетной записи
+
+![image](https://user-images.githubusercontent.com/79700810/135822250-32e420c5-37d1-456d-b864-060330228d87.png)
+
+Выбираем оптимальный план 
+
+![image](https://user-images.githubusercontent.com/79700810/135822319-f6934f3c-489d-4957-8b1e-3a90c09fae28.png)
+
+Для тестирования выбираем минимальный план 
+
+![image](https://user-images.githubusercontent.com/79700810/135822406-9678dc22-b181-495d-832f-399c986114a1.png)
+
+После проверки выбираем создать 
+
+![image](https://user-images.githubusercontent.com/79700810/135822463-6e1ec76f-4748-4c74-b501-17f1f7bb70ce.png)
+
+Процесс создание займет время после чего переходим к ресурсу
+
+![image](https://user-images.githubusercontent.com/79700810/135822969-6f466342-c6d8-4c6e-a77d-2c6ee95f8b47.png)
+
+Необходимо настроить правило подключения к базе данных
+
+![image](https://user-images.githubusercontent.com/79700810/135823227-280098f8-d7ed-446e-a4a5-4337fef54f0c.png)
+
+Добавляем правило и сохраняем
+
+![image](https://user-images.githubusercontent.com/79700810/135823372-8b57952f-7d42-4008-8d17-0e3a5c34b27c.png)
+
+
+Далее переходим в редактор запросов подключаемся и выполняем запрос
+
+![image](https://user-images.githubusercontent.com/79700810/135823656-0f23ddb8-e3ba-4a2d-b9f1-ff555ecd0bb6.png)
+
+```
+Create table [dbo].[Vehicle]([Id] [int] identity(1,1) not null,[Name] [nvarchar](50) not null,[License] [nvarchar](10) not null,[Make] [nvarchar](20) not null,[Model] [nvarchar](20) not null,[Year] [smallint] not null,Primary key CLUSTERED([Id] ASC))
+
+Insert into Vehicle ([Name],[License], Make, Model,Year) Values ('Thunderdom', 'MADMAX','Ford', 'Falcon XB Coupe', 1974)
+
+select * from Vehicle
+
+sqlcmd -S 172.30.66.20 -U lorries
+
+
+SELECT * FROM Vehicle
+```
