@@ -546,80 +546,114 @@ reboot
 
 ![image](https://user-images.githubusercontent.com/79700810/135449675-1c4c951d-2e18-4537-ae61-aab39a8d3ff6.png)
 
-## git 
+## Работа с системой контроля версий git
 
+Заходим на сайт GitHub.com (используйте свою учетную запись для входа)
+В поиске указываем @storm39mad находим репозиторий hi-tech
 ![image](https://user-images.githubusercontent.com/79700810/135442198-80415828-b7bc-44b9-894d-f9e7c125df8f.png)
 
-fork 
-
+В левом верхнем углу выбираем fork после чего данный репозиторий будет добавлен к вам в профиль 
 ![image](https://user-images.githubusercontent.com/79700810/135442254-515d7fbd-653c-4355-b28a-c3c76e40f4a6.png)
+H
 
+## Работа с системой контроля версий git clone
 
-### !!!!!!!! git clone
+Переходим в репозиторий далее в code и копируем ссылку для клонирования 
 ![image](https://user-images.githubusercontent.com/79700810/135442313-a2812500-9360-41ef-a53c-37bf25c3bb0e.png)
 
+На DEV1 в командной строке переходим в диск С и копируем репозиторий
+
+```powershell
+cd C:\
+git clone https://github.com/SLAVAKP11SS/hi-tech.git
+```
 ![image](https://user-images.githubusercontent.com/79700810/135442609-af82e04e-4af5-4c7a-8335-67cf48973ba0.png)
 
+
+Открываем проект lorrylogapi в vs code 
 ![image](https://user-images.githubusercontent.com/79700810/135436103-5cb74ffb-029d-46da-ae7c-5c4014dbfb53.png)
 
 
-## connect url
+## Работа с приложением
+
+В файле appsettings.json необходимо изменить способ подключения к базе данных 
 ```
 "Server=bd.ht2021.local; Database=LorryLog; Trusted_Connection=True;"
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135277610-4c0a60a8-5823-4fa6-80e8-7cf5b504a613.png)
+
+В файле Properties\launchSettings.json необходимо изменить url 
 ```
-http://172.30.0.3:5001;http://lorrylogapi.ht2021.local:5001
+"http://172.30.0.3:5001;http://lorrylogapi.ht2021.local:5001"
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135402103-bb745ded-3a11-4e53-acc6-c3633fcc5951.png)
 
 
-### !!!!!!!! git pull
+## Работа с системой контроля версий git git pull
 
+После внесения всех изменений в приложение необходимо запушить его в систему контроля версий 
+Для этого в своём профиле на GitHub необходимо перейти в настройки 
 ![image](https://user-images.githubusercontent.com/79700810/135442971-30957656-bc59-487e-be7c-74077f042e6e.png)
 
+Далее перейти в developer settings и сгенерировать новый токен 
 ![image](https://user-images.githubusercontent.com/79700810/135439193-330350b9-e33a-49b1-ae61-13c6aa6c9de6.png)
 
+Введите свой пароль от учётной записи GitHub 
 ![image](https://user-images.githubusercontent.com/79700810/135439334-86d25d36-b72c-4d74-b22d-2db7339f1d0c.png)
 
+Выбираем repo 
 ![image](https://user-images.githubusercontent.com/79700810/135439403-f2e1a336-e2a6-4e84-a900-34e2d6b016fe.png)
 
+Копируем токен в буфер 
 ![image](https://user-images.githubusercontent.com/79700810/135439423-74b80a48-844c-45e0-873a-e6beda1324d0.png)
 
+В командной строке powershell (в появившемся окне аунтификации вставляем токен)
+```powershell
+cd C:\hi-tech 
+git add -A
+git commit -m “test commit”
+git push
+```
 ![image](https://user-images.githubusercontent.com/79700810/135439641-ec0128ec-d877-49cd-9d2a-872cf462b2d3.png)
 
 ## APP
-
+Добавляем в домен и перезагружаем 
 ```powershell
 Add-Computer -DomainName "ht2021.local"
-```
-![image](https://user-images.githubusercontent.com/79700810/135242823-ee8b488a-9acb-40fc-93e3-1870fefe9788.png)
-
-
-```powershell
 Restart-Computer
 ```
- ## GIT install
+После перезагрузки заходим пользователем lorries устанавливаем git 
+![image](https://user-images.githubusercontent.com/79700810/135803246-6566a4f0-1fc9-4ca7-a13a-0175e120288a.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135251518-b528c6f5-6073-464c-a76a-745dff4fab15.png)
-
-## install dotnet sdk
-
-
-
+ ## Установка GIT 
 
 ```powershell
-Restart-Computer
+cd c:\software
+Git-2.33.0.2-64-bit.exe
 ```
+![image](https://user-images.githubusercontent.com/79700810/135803585-29fde88b-53cb-4215-80c8-b60695b11c55.png)
+## Установка dotnet sdk
+Устанавливаем dotnet sdk для запуска приложения
+```powershell
+cd c:\software
+dotnet-sdk-5.0.401-win-x64.exe
+```
+![image](https://user-images.githubusercontent.com/79700810/135803798-051bfdfa-ade0-4402-bb95-8a256cef87be.png)
+
+Добавляем правила в межсетевой экран 
 ```powershell
 New-NetFirewallRule -DisplayName "WebApi default 5001" -Direction Inbound -LocalPort 5001 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -LocalPort 5001 -Protocol UDP -Action Allow
 ```
+![image](https://user-images.githubusercontent.com/79700810/135277119-4309f92b-9c51-4440-a5d4-820d5260c9ef.png)
+![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
 
+Перезагружаем сервер 
+```powershell
+Restart-Computer
+```
 
 ![image](https://user-images.githubusercontent.com/79700810/135277119-4309f92b-9c51-4440-a5d4-820d5260c9ef.png)
-
-
 ![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
 
 
