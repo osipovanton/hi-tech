@@ -380,46 +380,83 @@ Vmk и группа будут добелены позже
 
 ![image](https://user-images.githubusercontent.com/79700810/135447301-8516729a-d7c5-4247-827c-2e530a8df388.png)
 
-## add gp host vmk
+## Добавление vmk и порт группы
+
+Выбираем созданную порт группу далее add VMkernel adapter
+
 ![image](https://user-images.githubusercontent.com/79700810/135447370-29741047-3580-4196-87b5-e5eda2b0af30.png)
+
+Добавляем хосты 
 
 ![image](https://user-images.githubusercontent.com/79700810/135447393-4dde2ee9-d651-459e-bab6-73ebbdbcb154.png)
 
+Оставляем протокол IPv4
 
 ![image](https://user-images.githubusercontent.com/79700810/135447462-923aaf13-ce84-42f6-aa2c-845e395daa06.png)
 
+Указываем статические настройки ip адресов и шлюза по умолчанию
+
 ![image](https://user-images.githubusercontent.com/79700810/135447630-379e8084-692f-46dc-81a4-da05a25399fa.png)
 
-## create VM
+## Создание виртуальный машины
+
+В кластере выбираем new VM
 
 ![image](https://user-images.githubusercontent.com/79700810/135428868-35fe3c27-fffd-4c80-a653-5f694a80be59.png)
 
+Указываем что будет создана новая виртуальная машина 
+
 ![image](https://user-images.githubusercontent.com/79700810/135428905-f1024ced-2c62-4e00-991d-d32c48b23448.png)
 
+Задаем имя 
 
 ![image](https://user-images.githubusercontent.com/79700810/135429197-708494d4-9eaa-4b27-9ef1-003b91b7e327.png)
 
+Выбираем место расположения для хранения 
+
 ![image](https://user-images.githubusercontent.com/79700810/135429303-c53136ff-8711-4ca5-a1a5-a20aa454f6a8.png)
+
+Указываем семейство и версию ОС
 
 ![image](https://user-images.githubusercontent.com/79700810/135429405-4c8b6bf4-413b-4b05-9deb-002951323123.png)
 
+Для экономии места на жестком диске выбираем Thin provision 
+
 ![image](https://user-images.githubusercontent.com/79700810/135429593-a1e5b1af-5b34-433d-b81f-51a4acd0a5eb.png)
+
+Выбираем сеть VM network (стандартная сеть созданная DS) и выбираем CD\DVD Datastore iso file
 
 ![image](https://user-images.githubusercontent.com/79700810/135429674-8d36f7ac-ae09-49d3-853d-f10a2c03e7e8.png)
 
+C NFS выбираем необходимый iso и указываем в поле connect 
+
 ![image](https://user-images.githubusercontent.com/79700810/135429749-d7241b86-ecab-416e-bb98-cc5e96723050.png)
+
+Запускаем созданную виртуальную машину
 
 ![image](https://user-images.githubusercontent.com/79700810/135429857-abb21abc-ffe9-4728-a70d-fd16969c99d4.png)
 
-## install centos
+## Установка ОС
+
+Необходимые пакеты guest agents и standard
+
 ![image](https://user-images.githubusercontent.com/79700810/135430573-9b52ed0a-d064-465c-a147-5c68a1ac293e.png)
+
+Задаем пароль для root и user
+
 ![image](https://user-images.githubusercontent.com/79700810/135430773-d2584e3d-0dbf-49bb-a2ca-5b74504e08fc.png)
+
+После установки перезагружаем для завершения процесса установки
 
 ![image](https://user-images.githubusercontent.com/79700810/135435183-7fc74a54-e07a-4fae-81aa-6bcbbc727bbd.png)
 
-## create TM
+## Создание Шаблона
+
+Выбираем виртуальную машину, которую хотим конвертировать в шаблон (должна быть выключена)
 
 ![image](https://user-images.githubusercontent.com/79700810/135445732-c6a79957-bf19-43dd-a251-5db26190c6ee.png)
+
+Применяем конвертацию
 
 ![image](https://user-images.githubusercontent.com/79700810/135445763-f7715c40-59d5-4e56-9c99-5a5212b291da.png)
 
