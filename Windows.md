@@ -653,19 +653,14 @@ New-NetFirewallRule -DisplayName "WebApi Browser 5001" -Direction Inbound -Local
 Restart-Computer
 ```
 
-![image](https://user-images.githubusercontent.com/79700810/135277119-4309f92b-9c51-4440-a5d4-820d5260c9ef.png)
-![image](https://user-images.githubusercontent.com/79700810/135277151-ed91d74b-36ad-4fc8-90e4-8915ee9d2493.png)
 
+## Запускприложения dotnet
 
-
-
-### !!!!!!!! git clone
-
+Далее делаем клон репозиторий со своей учётной записи с изменённой версией приложения 
 ![image](https://user-images.githubusercontent.com/79700810/135443641-5231e289-c6f3-4bf8-ad47-2883c4badefd.png)
 
 ![image](https://user-images.githubusercontent.com/79700810/135443831-d574f526-3678-438b-8a33-f53a1f9c686f.png)
 
-## dotnet run
 
 ![image](https://user-images.githubusercontent.com/79700810/135443926-8fe76615-6c31-4e85-835b-a8d3d8407964.png)
 
