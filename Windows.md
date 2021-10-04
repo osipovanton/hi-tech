@@ -689,20 +689,27 @@ Install-WindowsFeature -Name AD-Certificate, ADCS-Web-Enrollment -IncludeManagem
 ![image](https://user-images.githubusercontent.com/79700810/135455898-04ff07b7-4416-48e4-beab-af2bd0527816.png)
 
 Настройка роли AD CS
+
 ```powershell
 Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName "ECDSA_P256#Microsoft Software Key Storage Provider" -KeyLength 256 -HashAlgorithmName SHA256 -CACommonName "RootHT" -force
 ```
+
 Результат команды настройки
+
 ![image](https://user-images.githubusercontent.com/79700810/135458156-bdcb4768-dc14-4dea-b575-ae81719e02d5.png)
 
 В Server Manager во вкладке незаконченных процессах
+
 ![image](https://user-images.githubusercontent.com/79700810/135461720-6660d814-5aa9-401c-ba24-c00825918f2e.png)
 
 Выбираем ca web enrollment
+
 ![image](https://user-images.githubusercontent.com/79700810/135461761-d40bb5e5-fb6f-4299-9946-1e1111eef44b.png)ю
 
 Коммитим web enrollment
+
 ![image](https://user-images.githubusercontent.com/79700810/135461825-f5a79613-50cc-404d-acff-310a098182e9.png)
 
 Далее добавляем необходимые темплейты для будущего использования
+
 ![image](https://user-images.githubusercontent.com/79700810/135458420-feb14739-510d-47f1-a45e-497cfeaa5f82.png)
