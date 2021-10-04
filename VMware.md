@@ -27,12 +27,16 @@
 - NFS
 - VMware DRS
 
-## AD 
+## Записи DNS на AD
+
+Перед началам установки vCSA необходимо добавить записи типа А для хостов
+
 ```powershell
 Add-DnsServerResourceRecordA -Name "esxivcsa1" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.4" -CreatePtr 
 
 Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.5" -CreatePtr
 ```
+
 ![image](https://user-images.githubusercontent.com/79700810/135412898-0ae8a226-cd6a-4fc0-8d8f-fe5f27c9289f.png)
 
 ## ESXiVCSA1
