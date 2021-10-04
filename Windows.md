@@ -713,3 +713,34 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 Далее добавляем необходимые темплейты для будущего использования
 
 ![image](https://user-images.githubusercontent.com/79700810/135458420-feb14739-510d-47f1-a45e-497cfeaa5f82.png)
+
+## Создание простого веб приложения azure
+Необходимо создать бесплатную запить azure на https://portal.azure.com/
+В строке поиска перейти в службу приложений
+
+![image](https://user-images.githubusercontent.com/79700810/135820901-9b327ee8-c9bd-4337-994c-f887189c5dd2.png)
+
+При создании новой службы приложений необходимо выбрать группу ресурсов (создать новую)
+Задать имя по которому будет доступно приложение и стек 
+
+![image](https://user-images.githubusercontent.com/79700810/135820923-6853b56a-2be5-40f0-848d-d292222593fd.png)
+
+Далее необходимо выбрать план 
+![image](https://user-images.githubusercontent.com/79700810/135820971-56f53a76-1f1b-413f-a3d2-f0264e504df2.png)
+ 
+
+После проверки выбираем создать
+![image](https://user-images.githubusercontent.com/79700810/135820991-9c52843a-4f77-43b2-ba54-b4e469f548a4.png)
+
+Процесс создание займет время после чего переходим к ресурсу
+
+![image](https://user-images.githubusercontent.com/79700810/135821097-c70efacb-71af-4cf0-b645-ca1841d015a2.png)
+
+Копируем ссылку в буфер
+![image](https://user-images.githubusercontent.com/79700810/135821165-02e1e05e-91fb-4ca7-af7f-0ed4f0b9554b.png)
+
+Переходим по ссылки
+![image](https://user-images.githubusercontent.com/79700810/135821401-4655cdde-f35d-46d1-8406-73ad89c3a70c.png)
+
+## Создание простой базы данных в azure
+
