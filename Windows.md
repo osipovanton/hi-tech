@@ -47,6 +47,7 @@
 ```powershell
 Rename-Computer -NewName AD
 ```
+
 Результат команды (изменения вступят в силу после перезагрузки виртуальной машины)
 ![image](https://user-images.githubusercontent.com/79700810/135077764-128c6a5b-8b49-4233-ab01-28a4adff3ca7.png)
 
@@ -54,6 +55,7 @@ Rename-Computer -NewName AD
 ```powershell
 Get-NetAdapter
 ```
+
 Результат команды (в данном случае идентификатор имеет значение 4)
 ![image](https://user-images.githubusercontent.com/79700810/135076517-7ec62953-499f-4821-8ac5-ffa8ef9d131b.png)
 
@@ -88,7 +90,8 @@ Set-TimeZone -Id "Russian Standard Time"
 Настройка правил межсетевого экрана (разрешение трафика ICMP)
 ```powershell
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
-```
+```,
+
 Результат команды создание правила
 ![image](https://user-images.githubusercontent.com/79700810/135084032-127b3938-8887-43af-b922-407d02f7f7e0.png)
 
@@ -103,6 +106,7 @@ Restart-Computer
 ```powershell
 Rename-Computer -NewName BD
 ```
+
 Результат команды
 ![image](https://user-images.githubusercontent.com/79700810/135078689-e391018d-d787-46c0-b9a0-099bd68d2488.png)
 
@@ -111,6 +115,7 @@ Rename-Computer -NewName BD
 $GetIndex = Get-NetAdapter 
 New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.2 -PrefixLength 24 -DefaultGateway 172.30.0.254
 ```
+
 Результат команды (назначение статических настроек сетевого интерфейса)
 ![image](https://user-images.githubusercontent.com/79700810/135078577-974c7ced-0520-4c8b-abf4-086b6e8099a4.png)
 
@@ -118,6 +123,7 @@ New-NetIPAddress -InterfaceIndex $GetIndex.ifIndex -IPAddress 172.30.0.2 -Prefix
 ```powershell
 Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("172.30.0.1","8.8.8.8")
 ```
+
 Результат команды измененемя DNS
 ![image](https://user-images.githubusercontent.com/79700810/135078826-7608a631-22a0-4d47-b7d4-d3aa392dcb35.png)
 
@@ -125,6 +131,7 @@ Set-DnsClientServerAddress -InterfaceIndex $GetIndex.ifIndex -ServerAddresses ("
 ```powershell
 Set-TimeZone -Id "Russian Standard Time"
 ```
+
 Результат команды изменяя часового пояса
 ![image](https://user-images.githubusercontent.com/79700810/135079028-814169e5-4aa6-49a4-9004-0ed185bce153.png)
 
@@ -132,6 +139,7 @@ Set-TimeZone -Id "Russian Standard Time"
 ```powershell
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
 ```
+
 Результат команды создание правила
 ![image](https://user-images.githubusercontent.com/79700810/135084143-03aec0f0-07a3-4919-b70f-d9c7d3bf1400.png)
 
@@ -139,6 +147,7 @@ Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Prof
 ```powershell
 Restart-Computer
 ```
+
 ## на Виртуальной машине APP
 
 ![image](https://user-images.githubusercontent.com/79700810/135079269-d193157f-3d1c-4bdf-b12e-c9a29c51ad52.png)
