@@ -674,10 +674,13 @@ dotnet run
 
 ## Проверка DEV1
 
+Открываем браузер заходим по ссылке
 ![image](https://user-images.githubusercontent.com/79700810/135402954-0514daf7-d9dd-418f-9e41-e1186d1c3a26.png)
 
 
 ## ADCS
+
+
 ```powershell
 Install-WindowsFeature -Name AD-Certificate, ADCS-Web-Enrollment -IncludeManagementTools
 ```
