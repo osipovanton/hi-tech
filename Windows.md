@@ -347,6 +347,7 @@ New-ADOrganizationalUnit -Name "OUBD" -Path "DC=ht2021, DC=local"
 ```powershell
 New-ADGroup -Name "BD" -Path "OU=OUBD, DC=ht2021, DC=local" -GroupScope Global -SamAccountName BD
 ```
+
 Результат команды создание группы безопасности
 ![image](https://user-images.githubusercontent.com/79700810/135214997-fd4943f0-da1b-42ae-8830-64e1b7f051b8.png)
 
@@ -379,19 +380,25 @@ Add-ADGroupMember -Identity BD -Members lorries
 
 В Server Manager во вкладке Tools переходим в group policy management 
 Создаем новую GPO задаем ей имя
+
 ![image](https://user-images.githubusercontent.com/79700810/135275861-4635c1a3-88dd-4dd5-82a5-d3641570cdcf.png)
 
 Переходим в редактирование затем в Computer Configuration –> Preferences –> Control Panel Settings –> Local Users and Groups далее New -> Local Group
+
 ![image](https://user-images.githubusercontent.com/79700810/135276156-4f3b6640-d595-4123-a67d-1ccc8920a17c.png)
 
 В group name выбираем из выпадающего списка Administrators (Built-in) далее на add
+
 ![image](https://user-images.githubusercontent.com/79700810/135276221-6b3f8074-4ffa-4d80-9a2b-689abbe8d5a1.png)
 
 Выбираем группу безопасности BD
+
 ![image](https://user-images.githubusercontent.com/79700810/135276374-c6686035-50bc-4b3e-873d-30e4489a9a9f.png)
 
 ## Проверка пользователя 
+
 В Server Manager во вкладке Tools переходим в Active directory users and computers далее в OU
+
 ![image](https://user-images.githubusercontent.com/79700810/135218683-492495ec-5bcb-426a-8897-0581915428d8.png)
 
 ## Настройка BD
@@ -402,9 +409,11 @@ Add-Computer -DomainName "ht2021.local"
 ```
 
 Результат команды добавления в домен
+
 ![image](https://user-images.githubusercontent.com/79700810/135219110-dd760bf4-ba07-4050-9898-df8f9af9a031.png)
 
 Перезагрузка сервера
+
 ```powershell
 Restart-Computer
 ```
@@ -416,9 +425,11 @@ New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound
 ```
 
 Результат создание правила TCP
+
 ![image](https://user-images.githubusercontent.com/79700810/135220934-1c17e457-1931-411c-adce-e261e91349da.png)
 
 Правило UDP на порт 1433
+
 ```powershell
 New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
 ```
@@ -521,29 +532,36 @@ apt-get install vim
 apt-get install sssd-ad sssd-tools realmd adcli
 ```
 Результат команды установки пакетов
+
 ![image](https://user-images.githubusercontent.com/79700810/135448670-77bf4cad-09c9-47e4-bc29-b1d72658d54d.png)
 
 При помощи любого текстового редактора указываем сервер времени
+
 ```
 vim /etc/systemd/timesyncd.conf
 ```
 
 Указываем поставщиком времяни ad.ht2021.local
+
 ![image](https://user-images.githubusercontent.com/79700810/135449305-3a6cb4fc-6e93-4bcd-bd6f-592c69084355.png)
 
 Проверяем наличие контролеров домена в сети
+
 ```
 realm discover
 ```
 Результат команды
+
 ![image](https://user-images.githubusercontent.com/79700810/135449383-40f7e1f8-b638-4e4f-9501-507992c885d8.png)
 
 Присоединяем DEV2 к контролеру домена
+
 ```
 realm join ht2021.local
 realm list
 ```
 Результат команды добавления и проверка
+
 ![image](https://user-images.githubusercontent.com/79700810/135449633-dcd64aae-b34b-48a2-9796-c5d93f7b9f06.png)
 
 Создание автоматической директории для пользователя (домашней)
