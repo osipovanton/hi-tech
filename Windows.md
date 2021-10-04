@@ -788,7 +788,6 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 
 Далее переходим в редактор запросов подключаемся и выполняем запрос
 
-![image](https://user-images.githubusercontent.com/79700810/135823656-0f23ddb8-e3ba-4a2d-b9f1-ff555ecd0bb6.png)
 
 ```
 Create table [dbo].[Vehicle]([Id] [int] identity(1,1) not null,[Name] [nvarchar](50) not null,[License] [nvarchar](10) not null,[Make] [nvarchar](20) not null,[Model] [nvarchar](20) not null,[Year] [smallint] not null,Primary key CLUSTERED([Id] ASC))
@@ -802,3 +801,4 @@ sqlcmd -S 172.30.66.20 -U lorries
 
 SELECT * FROM Vehicle
 ```
+![image](https://user-images.githubusercontent.com/79700810/135828655-9a48126b-76e4-4e0e-abc1-2fe396f095b4.png)
