@@ -37,81 +37,133 @@ Add-DnsServerResourceRecordA -Name "esxivcsa1" -ZoneName "ht2021.local" -AllowUp
 Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.5" -CreatePtr
 ```
 
+Результат выполнения добавления записей DNS
+
 ![image](https://user-images.githubusercontent.com/79700810/135412898-0ae8a226-cd6a-4fc0-8d8f-fe5f27c9289f.png)
 
-## ESXiVCSA1
+## Базовая настройка хоста ESXiVCSA1
+
+На данный хост будет установлен vCSA для управления и конфигурации другими хостами ESXi
+Для базовой настройки сети выбираем функцию F2 и вводи пароль
+Переходим в управление менеджмент сетью
 
 ![image](https://user-images.githubusercontent.com/79700810/135403164-84049686-a6a1-422b-9b34-adedb037b642.png)
 
+Задаем статические конфигурации сети 
+
 ![image](https://user-images.githubusercontent.com/79700810/135403249-bfc792ef-74dd-4851-9969-245f9c145769.png)
+
+Переходим в DNS настройки и также задаем статические параметры 
 
 ![image](https://user-images.githubusercontent.com/79700810/135403300-f2039560-351d-4ff0-81dd-7fb362ec718c.png)
 
+Нажимаем ESC 
+
 ![image](https://user-images.githubusercontent.com/79700810/135403423-606b27c7-eada-4179-a9e4-fd179dfa0d45.png)
+
+после чего Y для сохранения конфигурации
 
 ![image](https://user-images.githubusercontent.com/79700810/135403468-cd30c045-466c-4223-a4b4-99e1a95e7c11.png)
 
 
 
-## install vcsa in DEV1
+## Установка vCSA с клиента DEV1
 
+Монтируем диск стандартными средствами переходим в директорию и запускаем installer.exe
 
 ![image](https://user-images.githubusercontent.com/79700810/135404545-c901b91b-2212-4a1d-b06c-1fa552eed92b.png)
 
+Выбираем install соглашаемся с лицензии
+Далее указываем сервер ESXi на котором будет развернут vCSA (в случае возникновения ошибок по DNS имени можно использовать ip)
+
 ![image](https://user-images.githubusercontent.com/79700810/135404630-71ce1e7f-df5a-4b08-b459-ac3e1671c45c.png)
+
+Указываем имя виртуальной машины vCSA и пароль от root
 
 ![image](https://user-images.githubusercontent.com/79700810/135404686-ae80a019-cd10-4523-a058-8708afbfcf1a.png)
 
+Выбираем необходимый тир и место расположения (также ставим галку в чек-боксе “тонкий”)
+
 ![image](https://user-images.githubusercontent.com/79700810/135404742-d5798125-a7b8-4aeb-b0a6-ffbe87006b07.png)
+
+Задаем статические конфигурации интерфейса для vCSA
 
 ![image](https://user-images.githubusercontent.com/79700810/135404962-025505a2-88df-4377-9e36-15aab143448d.png)
 
 
-## config vcsa 
+В ходе установки необходимо будет до конфигурировать сервер на втором этапе 
 
 ![image](https://user-images.githubusercontent.com/79700810/135412166-16ebc16e-a0b2-4944-ae92-0d307ecd7ae4.png)
 
+Указываем сервер для синхронизации времени, которым выступает AD 
 
 ![image](https://user-images.githubusercontent.com/79700810/135412101-ca8c0ea6-a94f-4a48-865d-c86c4b16153c.png)
 
+Указываем локальный префикс аунтификации vCSA и пароль учетной записи Administrator
 
 ![image](https://user-images.githubusercontent.com/79700810/135412335-a0e1a285-dd9d-4a45-8701-fdc6cb6b78ee.png)
 
+Результат успешной установки и переходим по url адресу
+
 ![image](https://user-images.githubusercontent.com/79700810/135414383-b5d1b48c-e824-443a-a498-7fa76ec8b813.png)
 
-![image](https://user-images.githubusercontent.com/79700810/135414539-cc414ffd-62a5-4828-bb27-b842005cd905.png)
+Вводим учетную запись administrator@vsphere.local и пароль при установке на втором этапе
 
 ![image](https://user-images.githubusercontent.com/79700810/135414591-3fb60e05-bd09-4d39-baee-aa0850dd5932.png)
 
-## join domen
+## Присоединение к контроллеру домена 
+
+Переходим в menu далее в administration
+
 ![image](https://user-images.githubusercontent.com/79700810/135414702-873b227e-e2ca-4b7d-8fcf-b91ca597822c.png)
+
+В разделе SSO переходим в разделе configuration выбираем AD и join AD 
 
 ![image](https://user-images.githubusercontent.com/79700810/135414774-9d158875-918c-48e7-a47e-8337ac243c45.png)
 
+Указываем имя домена, OU и учетную запись администратора
+
 ![image](https://user-images.githubusercontent.com/79700810/135415042-cd48f4c9-cb0d-4ae7-bc20-6532a7ee8b0c.png)
+
+Изменения вступят в силу после перезагрузки vCSA для этого заходи по адресу https://vcsa1.ht2021.local:5480
 
 ![image](https://user-images.githubusercontent.com/79700810/135415142-aea9af3f-526c-4056-a70d-e0a14d8ad472.png)
 
+В верхней части выбираем Actions и reboot
+
 ![image](https://user-images.githubusercontent.com/79700810/135416603-83f0247a-5e4d-46aa-9af4-1de417cf4d21.png)
+
+После перезагрузки переходим https://vcsa1.ht2021.local 
+
 ![image](https://user-images.githubusercontent.com/79700810/135416679-df40adf2-090e-4df7-a8a7-c471870b5917.png)
 
-## add identyty 
+Добавление identyty для входа по суффиксу выбираем add
+
 ![image](https://user-images.githubusercontent.com/79700810/135416696-277ff07d-b2c0-4730-aa3a-3a6129630d06.png)
+
+Указываем доменное имя и способ коннекта
 
 ![image](https://user-images.githubusercontent.com/79700810/135416779-513d68ec-e22d-4300-8af4-3c2696ad82a4.png)
 
+Указываем доменное имя и способ коннекта
+
 ![image](https://user-images.githubusercontent.com/79700810/135416873-ee606086-dff7-4f8c-8206-60bf0e18a094.png)
 
-
-## admin group
+Переходим в users and groups выбираем группу administrators и add members
 
 ![image](https://user-images.githubusercontent.com/79700810/135417144-e1c18168-8163-4639-86b2-541e3f0a3c4d.png)
 
+Выбираем домен и группу пользователей 
+
 ![image](https://user-images.githubusercontent.com/79700810/135417075-890fb75f-d344-481d-afca-6fcf3e79cf07.png)
+
+После чего можно аунтифицировать администратором домена на vCSA
 
 ![image](https://user-images.githubusercontent.com/79700810/135418208-fa92b8af-7630-4046-9dc0-5e8bb750860f.png)
 
-## host config 
+## Базовая настройка хоста ESXi1
+
+Перед началам настройки хостов ESXi необходимо добавить записи типа А 
 
 ```powershell
 Add-DnsServerResourceRecordA -Name "esxi1" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.6" -CreatePtr
@@ -119,35 +171,61 @@ Add-DnsServerResourceRecordA -Name "esxi1" -ZoneName "ht2021.local" -AllowUpdate
 Add-DnsServerResourceRecordA -Name "esxi2" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.7" -CreatePtr
 ```
 
-ESXi1
+Для базовой настройки сети выбираем функцию F2 и вводи пароль
+Переходим в управление менеджмент сетью
+Задаем статические конфигурации сети 
+
 
 ![image](https://user-images.githubusercontent.com/79700810/135413309-84959e81-8e3e-4c13-87c5-759e8d7e27f6.png)
 
+Переходим в DNS настройки и также задаем статические параметры 
+Нажимаем ESC после чего Y для сохранения конфигурации
+
 ![image](https://user-images.githubusercontent.com/79700810/135414107-1c936869-0241-49aa-92a2-d34a484e6e48.png)
 
-ESXi2
+
+## Базовая настройка хоста ESXi2
+Для базовой настройки сети выбираем функцию F2 и вводи пароль
+Переходим в управление менеджмент сетью
+Задаем статические конфигурации сети 
 
 ![image](https://user-images.githubusercontent.com/79700810/135414229-6f95de7c-153e-4053-a1e1-d872b878a2e2.png)
+
+Переходим в DNS настройки и также задаем статические параметры 
+Нажимаем ESC после чего Y для сохранения конфигурации
 
 ![image](https://user-images.githubusercontent.com/79700810/135414423-8a1ff8fd-413a-47d0-810b-d13a04da93ef.png)
 
 
-## datacenter
+## Создание дата центра
+
+В vCSA выбираем правой кнопкой мыши new datacenter 
 
 ![image](https://user-images.githubusercontent.com/79700810/135418065-f2ed6bb9-b991-4f41-94b5-68ce66819e90.png)
 
+Задаем имя 
+
 ![image](https://user-images.githubusercontent.com/79700810/135418349-564c76b0-86ed-4804-a63d-22687b68f943.png)
 
-
-## cluster
+## Создание кластера 
+В vCSA выбираем правой кнопкой мыши new Cluster
+Задаем имя и параметры DRS и HA
 
 ![image](https://user-images.githubusercontent.com/79700810/135418408-b9fe568f-aca6-4161-8baf-9346e3caba1e.png)
 
+В оснастке конфигурации кластера переходим в quick start и добавляем хосты
+
 ![image](https://user-images.githubusercontent.com/79700810/135418479-ab912d91-6484-4f11-b4f0-5c4c5090a7e5.png)
+
+Указываем имена логин и пароль
 
 ![image](https://user-images.githubusercontent.com/79700810/135418557-6e576f50-c97d-4296-9a36-abd301c09a82.png)
 
+Добавляем само подписанные сертификаты 
+
 ![image](https://user-images.githubusercontent.com/79700810/135418739-5239bafe-4eac-4a53-9ae6-836423b68696.png)
+
+После создания кластера необходимо проинициализировать жесткие диски и создать хранилище
 
 ![image](https://user-images.githubusercontent.com/79700810/135418775-18cd39bd-1aec-4623-a40c-4d120c86c725.png)
 
