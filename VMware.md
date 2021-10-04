@@ -69,6 +69,19 @@ Add-DnsServerResourceRecordA -Name "vcsa1" -ZoneName "ht2021.local" -AllowUpdate
 
 ## Установка vCSA с клиента DEV1
 
+Перед началам установки зайти на https://esxivcsa1.ht2021.local
+
+![image](https://user-images.githubusercontent.com/79700810/135850451-bfec721c-292c-4861-93f8-7d0373813209.png)
+
+Перейти во вкладку storage далее в new datastore
+
+![image](https://user-images.githubusercontent.com/79700810/135850561-72bfa540-cd88-4b86-8be4-1bda9412c090.png)
+
+Создать новое хранилище куда будет установлен vCSA задаем имя и выбираем диск 
+
+![image](https://user-images.githubusercontent.com/79700810/135850873-f2e1ff8b-8d07-4d17-9450-1220bf33dc73.png)
+
+
 Монтируем диск стандартными средствами переходим в директорию и запускаем installer.exe
 
 ![image](https://user-images.githubusercontent.com/79700810/135404545-c901b91b-2212-4a1d-b06c-1fa552eed92b.png)
@@ -230,58 +243,113 @@ Add-DnsServerResourceRecordA -Name "esxi2" -ZoneName "ht2021.local" -AllowUpdate
 ![image](https://user-images.githubusercontent.com/79700810/135418775-18cd39bd-1aec-4623-a40c-4d120c86c725.png)
 
 
-## DS 
-esix1
+## Инициализация дисков ESXi1
+
+Переходим в хранение далее правой кнопкой мыши по дата центру и создать new Datastore
+
 ![image](https://user-images.githubusercontent.com/79700810/135424654-b13ce591-277f-4497-b5b7-506383f8ff88.png)
+
+Выбираем тип VFMS для жесткого диска
+
 ![image](https://user-images.githubusercontent.com/79700810/135425020-48bee611-c3f8-4321-9465-6139ddf2f4e1.png)
+
+Выбираем хост, на котором будем инициализировать диск и задаем имя
+
 ![image](https://user-images.githubusercontent.com/79700810/135425245-3673b0f8-9517-4d71-83cc-8ba99079b6c8.png)
+
+Результат выбранных конфигураций 
+
 ![image](https://user-images.githubusercontent.com/79700810/135425308-e9f5cae8-5e18-49b9-93a8-b5053a74e116.png)
 
-esix2
+## Инициализация дисков ESXi2
+
+По аналогии делаем тоже самое с вторым хостом выбираем диск и задаем имя
+
 ![image](https://user-images.githubusercontent.com/79700810/135425552-335f8a01-67db-4db6-b359-26c636d20cf0.png)
+
+Результат выбранных конфигураций 
+
 ![image](https://user-images.githubusercontent.com/79700810/135425598-ca1e9de5-dd03-4599-ac46-70fa1652e556.png)
 
 
-## ds cluster
+## Создание дата центра кластера хранилища
+
+В результате есть два проинициализированных диска на хостах, которые можно объединить в управляемое централизованное хранилище для балансировки нагрузки
+
+Переходим в хранение далее правой кнопкой мыши по дата центру и создать new Datastore cluster
 
 ![image](https://user-images.githubusercontent.com/79700810/135425651-8e1dff4a-cc65-4058-b78d-bf1a625cff8d.png)
 
+Задаем имя и автоматическую работу DRS на кластере хранения
+
 ![image](https://user-images.githubusercontent.com/79700810/135424715-476f138e-9981-4ba2-b2af-34326947fe0f.png)
+
+Выбираем кластер, в котором находиться хосты
 
 ![image](https://user-images.githubusercontent.com/79700810/135424825-963eaff1-0a83-4e81-b5cf-89e3a8f44e6d.png)
 
+Далее отмечаем диски, которые войдут в состав кластера хранения
+
 ![image](https://user-images.githubusercontent.com/79700810/135425750-3da57df5-2b52-485b-8d49-b8414643c284.png)
 
-## NFS
+## Подключение NFS для iso образов
+
+Переходим в хранение далее правой кнопкой мыши по дата центру и создать new Datastore
 
 ![image](https://user-images.githubusercontent.com/79700810/135426724-0f5afb50-f444-471a-9cfc-ce66c03753f5.png)
 
+Выбираем тип NFS
+
 ![image](https://user-images.githubusercontent.com/79700810/135426758-d968230c-b0c2-47a5-8015-4306c9b6ebf6.png)
 
+Указываем имя, директорию и сервер (заранее сконфигурированных)
+
 ![image](https://user-images.githubusercontent.com/79700810/135426842-2ce8ce9a-4fa6-4b8a-ab5c-31efbad3fbac.png)
+
+Указываем хосты, к которым будет монтироваться NFS
 
 ![image](https://user-images.githubusercontent.com/79700810/135426881-16d8e56c-1687-4f5f-9ece-2e2043dae7de.png)
 
 
-## network
+## Конфигурация сети для кластера HA
+
+В оснастке конфигурации кластера переходим в quick start и configure в 3 разделе 
 
 ![image](https://user-images.githubusercontent.com/79700810/135418985-291690d8-417b-47ee-b865-fe2f522f0580.png)
 
+Авто конфигуратор предложит создать Distributed switches и все необходимые портовые группы для работы кластера
+
 ![image](https://user-images.githubusercontent.com/79700810/135419126-ef91ef9f-eaad-47dd-9da7-876b25bf22b1.png)
+
+Для vMouten сети будем использовать тот же сегмент где и менеджмент сеть 
+Esxi1.ht2021.loacl адрес 172.30.0.10/24
+Esxi2.ht2021.loacl адрес 172.30.0.11/24
+Шлюз по умолчанию 172.30.0.254
+
 
 ## замена
 ![image](https://user-images.githubusercontent.com/79700810/135419255-3f395c59-b38a-42d3-9b2b-55b1ae537412.png)
 
 ## замена
 
+Указываем сервер времени AD
+
 ![image](https://user-images.githubusercontent.com/79700810/135419385-5fbedbdb-29f9-4181-90dd-f3b6bf355417.png)
 
-## network2 DMZ create ds
+## Создание дополнительной сети DMZ
+
+Создать новый Distributed switch переходим в управление сетями далее в new Distributed switch
 
 ![image](https://user-images.githubusercontent.com/79700810/135446933-0c0d656b-12e0-4039-bb42-1647c4e69bd1.png)
 
+Задаем имя 
+
 ![image](https://user-images.githubusercontent.com/79700810/135446954-4ae8563c-2d10-43e6-bd96-d4fbfdd940ea.png)
+
+Задаем имя для портовой группы на Distributed switch 
+
 ![image](https://user-images.githubusercontent.com/79700810/135446997-b349f1bc-8387-48d7-849f-1521ecb1f66f.png)
+
 ![image](https://user-images.githubusercontent.com/79700810/135447020-90f98242-ad1a-4e6f-9914-0a9c723f089b.png)
 
 ## add ds host 
