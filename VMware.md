@@ -350,18 +350,33 @@ Esxi2.ht2021.loacl адрес 172.30.0.11/24
 
 ![image](https://user-images.githubusercontent.com/79700810/135446997-b349f1bc-8387-48d7-849f-1521ecb1f66f.png)
 
+Результат выбранных конфигураций
+
 ![image](https://user-images.githubusercontent.com/79700810/135447020-90f98242-ad1a-4e6f-9914-0a9c723f089b.png)
 
-## add ds host 
+## Добавление DS на хосты 
+
+На созданном DS выбираем add abd manage hosts
+
 ![image](https://user-images.githubusercontent.com/79700810/135447098-4e454a22-d3c2-4deb-ba3c-bc9c843c6b51.png)
+
+Выбираем add hosts 
 
 ![image](https://user-images.githubusercontent.com/79700810/135447131-d96c126d-a01e-49b4-bfe7-135e60ec68a7.png)
 
+Указываем хосты, на которые будет добавлен данный свич
+
 ![image](https://user-images.githubusercontent.com/79700810/135447182-91768211-ac7b-4b2f-b394-d0ff024bb110.png)
+
+Выбираем второй интерфейс 
 
 ![image](https://user-images.githubusercontent.com/79700810/135447245-f7ad2161-61e0-4435-9fe9-c08ba13af5b6.png)
 
+Указываем приходящий линк в свич
+
 ![image](https://user-images.githubusercontent.com/79700810/135447279-12310165-4c26-465c-a2a6-f7ca06063bf9.png)
+
+Vmk и группа будут добелены позже
 
 ![image](https://user-images.githubusercontent.com/79700810/135447301-8516729a-d7c5-4247-827c-2e530a8df388.png)
 
