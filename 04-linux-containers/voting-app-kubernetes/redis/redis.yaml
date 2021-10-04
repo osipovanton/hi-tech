@@ -1,3 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reids
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rediskv
+  template:
+    metadata:
+      labels:
+        app: rediskv
+    spec:
+      containers:
+      - name: reids
+        image: redis:alpine
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+          - mountPath: /data
+            name: redis-vol
+      volumes:
+        - name: redis-vol
+          persistentVolumeClaim:
+            claimName: redis-pvc
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -5,8 +36,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/component: master
-    app.kubernetes.io/instance: redis
+    app: rediskv
   ports:
   - port: 6379
     targetPort: 6379
