@@ -88,9 +88,10 @@ Set-TimeZone -Id "Russian Standard Time"
 ![image](https://user-images.githubusercontent.com/79700810/135077137-a6b43163-7ea7-4fb2-9e33-c555f1d03037.png)
 
 Настройка правил межсетевого экрана (разрешение трафика ICMP)
+
 ```powershell
 Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True -Profile Any
-```,
+```
 
 Результат команды создание правила
 ![image](https://user-images.githubusercontent.com/79700810/135084032-127b3938-8887-43af-b922-407d02f7f7e0.png)
