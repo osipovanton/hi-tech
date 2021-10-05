@@ -66,13 +66,15 @@ Router(config-router)# end
 ##  NGINX INGRESS
 
 
-```sh
+```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx
 ```
 
+```bash
 kubectl edit svc ingress-nginx-controller 
+```
 
 ## Cert Manager
 
