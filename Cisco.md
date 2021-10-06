@@ -55,3 +55,157 @@ interface Gi0/0
 neighbor <address>  default-originate [route-map <map-name>]
 
 
+стандартные
+расширенные
+
+нумерованные ACL 
+именованные ACL
+
+enable
+conf t
+access-list 1-99(стандартные) permit/deny описание какой-то сети или устройства
+
+255.255.255.255
+255.255.255.0
+ access-list 5 permit 192.168.1.0 0.0.0.255
+
+host - 1 устройство
+any - все устройства
+
+access-list 5 deny any
+
+1. То, что не разрешено, то запрещено
+2. Все команды выполняются по очереди сверху вниз
+
+Если есть необх запретить доступ 1 узлу в сети,
+то сначала запрещаем , а потом разрешаем остальное
+
+permit host ...
+deny any
+
+применение:
+
+a) интерфейс
+б) удал. доступ
+в) на дополнит службы ( NAT, Ipsec и т.д.)
+
+a) interface ...
+ip access-group #списка in/out
+
+б)line vty 0 4
+access-class #списка in/out
+
+ssh 
+Router(config)#hostname R1
+R1(config)#ip domain-name cisco.com
+R1(config)#username admin priv 15 secret cisco
+R1(config)#crypto key generate rsa 
+1024
+R1(config)#ip ssh version 2
+R1(config)#line vty 0 4
+R1(config-line)#transport input ssh 
+R1(config-line)#login local
+
+Стандартные списки располагают как можно ближе к точке 
+регулирования
+
+Стандартные именованные списки
+
+en
+conf t
+ip access-list standart имя
+permit ... - 10
+deny...    - 20
+
+no 10 -удалить 1 строку
+15 permit ...
+
+Расшир. списки
+
+access-list 100-199 permit/deny протокол исходящяя сеть сеть назначения [номер порта]
+
+access-list 105 permit 192.168.1.0 0.0.0. 255 192.168.2.0 0.0.0.255 eq 80
+
+eq =
+lt <
+gt >
+
+Расшир. именованные списки
+
+ip access-list extended имя 
+permit ...
+deny ...
+
+NAT
+
+1.  Написать access-list описывающий трафик который мы будем фильтровать (в основном входящий трафик)
+2. на внутр. интерфейсе - ip nat inside
+3. на внешн. интерфейсе - ip nat outside
+
+en
+conf t
+ip nat inside source list #списка interface внешний интерфейс overload  - pat
+show ip nat translations - показать преобразования
+
+VRRP
+
+int ...
+vrrp номер группы ip ....
+vrrp 1 ip 192.168.1.1
+vrrp priority число
+
+Active - работает
+Listening - на готове
+
+preemt 
+
+int 
+no vrrp 1 preempt
+
+hsrp
+
+int ...
+standby 1 ip 192.168.1.1
+stadby priority ...
+standby preemt - вкл preemt
+
+
+
+SYSLOG
+
+logging trap уровень "ловушек"
+logging host ip add
+R1(config)#service timestamps log datetime msec 
+
+SNMP
+
+AAA
+
+authentication user? login/pass?
+authorization  права?
+accounting учет деятельности пользователя
+
+1. local
+2. RADIUS
+3. TACACS
+
+aaa new-model
+
+(c) aaa authentication login CISCO local 
+или 
+aaa authentication login CISCO group radius/tacacs
+
+(c) aaa authorization exec CISCO2 local 
+или 
+aaa authorization  login CISCO2 group radius/tacacs
+
+
+
+
+
+                             
+
+
+
+
+
