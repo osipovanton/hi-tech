@@ -442,9 +442,9 @@ New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound 
 ## Конфигурация элементов в powershell
 ```powershell
 Add-Computer -DomainName "ht2021.local"
-Restart-Computer
 New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
+Restart-Computer
 ```
 ## Установка сервера MSSQL на BD
 
