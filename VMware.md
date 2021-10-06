@@ -315,7 +315,7 @@ Add-DnsServerResourceRecordA -Name "esxi2" -ZoneName "ht2021.local" -AllowUpdate
 
 В оснастке конфигурации кластера переходим в quick start и configure в 3 разделе 
 
-![image](https://user-images.githubusercontent.com/79700810/135418985-291690d8-417b-47ee-b865-fe2f522f0580.png)
+![image](https://user-images.githubusercontent.com/79700810/136193163-4bf17432-21a8-47ca-a5de-34f85e32cac3.png)
 
 Авто конфигуратор предложит создать Distributed switches и все необходимые портовые группы для работы кластера
 
@@ -327,10 +327,7 @@ Esxi2.ht2021.loacl адрес 172.30.0.11/24
 Шлюз по умолчанию 172.30.0.254
 
 
-## замена
-![image](https://user-images.githubusercontent.com/79700810/135419255-3f395c59-b38a-42d3-9b2b-55b1ae537412.png)
-
-## замена
+![image](https://user-images.githubusercontent.com/79700810/136193266-3de24c2b-bb59-43a7-82bf-e4f46f2411af.png)
 
 Указываем сервер времени AD
 
