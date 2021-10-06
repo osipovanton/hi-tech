@@ -531,6 +531,7 @@ select * from Vehicle
 hostnamectl set-hostname DEV2
 apt-get install vim
 apt-get install sssd-ad sssd-tools realmd adcli
+apt install realmd
 ```
 Результат команды установки пакетов
 
