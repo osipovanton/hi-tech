@@ -742,7 +742,6 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 Далее добавляем необходимые темплейты для будущего использования
 
 ![image](https://user-images.githubusercontent.com/79700810/135458420-feb14739-510d-47f1-a45e-497cfeaa5f82.png)
-
 ## Создание Группы ресурсов
 Необходимо создать бесплатную запить azure на https://portal.azure.com/
 
@@ -767,6 +766,30 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 
 ## Создание виртуальной машины 
 
+Создаем группу ресурсов под виртуальные машины (не обязательно можно использовать уже созданные)
+В группе ресурсов переходим в создать и выбираем образ ubuntu
+
+![image](https://user-images.githubusercontent.com/79700810/136343731-367e0116-35f4-4ba5-855e-1d427a6dcb6c.png)
+
+Задаем название, группу, регион выбираем размер (самый минимальный для тестирования)
+
+![image](https://user-images.githubusercontent.com/79700810/136344014-3846045d-f723-431f-b0c3-5c04a29ebe2e.png)
+
+Создаем пользователя и пароль для подключения по ssh
+
+![image](https://user-images.githubusercontent.com/79700810/136344073-fdaa9276-9cbf-4956-9b2c-0895af91976b.png)
+
+Выбираем тип диска HHD (для тестирования)
+
+![image](https://user-images.githubusercontent.com/79700810/136344141-00b2ebdf-f6f1-4692-a9e9-61828082c826.png)
+
+Выбираем заранее созданную подсеть
+
+![image](https://user-images.githubusercontent.com/79700810/136344204-47df978f-c090-425f-8dca-fc537d51671c.png)
+
+После создание на ВМ будет также присвоен общедоступный IP адрес по которому можно получить доступ по ssh
+
+![image](https://user-images.githubusercontent.com/79700810/136344349-b7eefc07-5291-4b9d-9c55-2fe3419ef7f6.png)
 
 ## Создание простого веб приложения azure
 В строке поиска перейти в службу приложений
