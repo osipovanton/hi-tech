@@ -743,8 +743,32 @@ Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -CryptoProviderName 
 
 ![image](https://user-images.githubusercontent.com/79700810/135458420-feb14739-510d-47f1-a45e-497cfeaa5f82.png)
 
-## Создание простого веб приложения azure
+## Создание Группы ресурсов
 Необходимо создать бесплатную запить azure на https://portal.azure.com/
+
+В левой части перейти в выпадающей список и выбрать Группы ресурсов далее создать 
+
+выбрать тип подписки, задать имя для группы и регион
+
+![image](https://user-images.githubusercontent.com/79700810/136342571-76c340ef-9a71-48ce-9599-46d9c132e015.png)
+
+## Создание виртуальной сети
+В строке поиска перейти в виртуальная сеть
+
+![image](https://user-images.githubusercontent.com/79700810/136342836-f779e95b-bba0-4294-87c9-8462e04df521.png)
+
+выбрать тип подписки, задать имя для группы и регион
+
+![image](https://user-images.githubusercontent.com/79700810/136343168-46c86434-040a-482b-9a3b-3f1dd2874070.png)
+
+Задаем сеть и делаем подсеть 
+
+![image](https://user-images.githubusercontent.com/79700810/136343406-0b9f05e7-26e2-45f2-a20e-bf2af2cba2a8.png)
+
+## Создание виртуальной машины 
+
+
+## Создание простого веб приложения azure
 В строке поиска перейти в службу приложений
 
 ![image](https://user-images.githubusercontent.com/79700810/135820901-9b327ee8-c9bd-4337-994c-f887189c5dd2.png)
@@ -831,3 +855,6 @@ sqlcmd -S 172.30.66.20 -U lorries
 SELECT * FROM Vehicle
 ```
 ![image](https://user-images.githubusercontent.com/79700810/135828655-9a48126b-76e4-4e0e-abc1-2fe396f095b4.png)
+
+
+
