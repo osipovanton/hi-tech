@@ -234,9 +234,9 @@ Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
 Результат команды 
 ![image](https://user-images.githubusercontent.com/79700810/135089385-f9b18d69-4c0d-40d9-a100-4a3fc80be898.png)
 
-В прямой зоне DNS находится запись dc.ht2021.local (добавим в обратную зону)
+В прямой зоне DNS находится запись ad.ht2021.local (добавим в обратную зону)
 ```powershell
-Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
+Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName ad.ht2021.local -Name 1
 ```
 Результат команды добавления в обрадую зону
 ![image](https://user-images.githubusercontent.com/79700810/135096456-2d31bd18-bbc2-4b55-b035-d9a0055ca8a2.png)
@@ -258,7 +258,7 @@ Add-DnsServerResourceRecordA -Name "lorrylogapi" -ZoneName "ht2021.local" -Allow
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 Install-ADDSForest -DomainName "ht2021.local" -InstallDNS
 Add-DnsServerPrimaryZone -NetworkId 172.30.0.0/24 -ReplicationScope Domain
-Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName dc.ht2021.local -Name 1
+Add-DNSServerResourceRecordPTR -ZoneName 0.30.172.in-addr.arpa -PTRDomainName ad.ht2021.local -Name 1
 Add-DnsServerResourceRecordA -Name "lorrylogapi" -ZoneName "ht2021.local" -AllowUpdateAny -IPv4Address "172.30.0.3" -CreatePtr 
 ```
 
